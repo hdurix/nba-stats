@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class NbaWrapperScoreboards {
+class NbaWrapperScoreboards {
 
     public Scoreboard forDate(LocalDate date) {
         int day = date.getDayOfMonth();
