@@ -5,28 +5,28 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class MatchStatUnitTest {
+public class GameStatUnitTest {
 
     @Test
     public void shouldNotBuildWithoutAwayTeam() {
-        assertThatThrownBy(() -> new MatchStat(null, detroit()))
+        assertThatThrownBy(() -> new GameStat(null, detroit()))
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("away");
     }
 
     @Test
     public void shouldNotBuildWithoutHomeTeam() {
-        assertThatThrownBy(() -> new MatchStat(indiana(), null))
+        assertThatThrownBy(() -> new GameStat(indiana(), null))
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("home");
     }
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(defaultMatchStat()).hasToString("Pacers 123 - Pistons 124\n\n" + indiana() + "\n\n" + detroit());
+        assertThat(defaultGameStat()).hasToString("Pacers 123 - Pistons 124\n\n" + indiana() + "\n\n" + detroit());
     }
 
-    private MatchStat defaultMatchStat() {
-        return new MatchStat(indiana(), detroit());
+    public static GameStat defaultGameStat() {
+        return new GameStat(indiana(), detroit());
     }
 }

@@ -7,7 +7,7 @@ import fr.hippo.nbastats.domain.Identity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class NbaWrapperPlayers {
+class NbaWrapperPlayers {
 
     public Identity getIdentityFromPlayerId(String playerId) {
         PlayerMin player;

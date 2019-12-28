@@ -1,13 +1,12 @@
 package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
 import fr.hippo.nbastats.domain.TeamName;
-import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NbaWrapperTeams {
+class NbaWrapperTeams {
     private static Map<String, TeamName> IDS = Map.ofEntries(
         toEntry("1610612737", TeamName.ATLANTA),
         toEntry("1610612738", TeamName.BOSTON),

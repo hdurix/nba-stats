@@ -9,7 +9,7 @@ import fr.hippo.nbastats.domain.TwoValues;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NbaWrapperPlayerConverter {
+class NbaWrapperPlayerConverter {
     private final NbaWrapperPlayers players;
 
     public NbaWrapperPlayerConverter(NbaWrapperPlayers players) {

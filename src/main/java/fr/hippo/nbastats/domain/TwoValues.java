@@ -9,6 +9,18 @@ public class TwoValues {
         this.total = total;
     }
 
+    public int getSuccess() {
+        return success;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public int getMissed() {
+        return total - success;
+    }
+
     @Override
     public String toString() {
         String result = "";

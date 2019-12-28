@@ -44,7 +44,30 @@ public class PlayerStat {
         this.turnovers = builder.turnovers;
         this.minutes = builder.minutes;
 
-        this.evaluation = new TwoDigitNumber(points.value() + rebounds.value() + assists.value() + blocks.value() + steals.value());
+        this.evaluation = ttflEvaluation();
+    }
+
+    private TwoDigitNumber ttflEvaluation() {
+        //POINTS + REBONDS + PASSES + INTERCEPTIONS + CONTRES + TIRS RÉUSSIS + 3 POINTS RÉUSSIS + LANCERS RÉUSSIS
+        //
+        //(moins)
+        //
+        //BALLES PERDUES + TIRS RATÉS + TROIS POINTS RATÉS + LANCERS RATÉS
+        //        points.value() + rebounds.value() + assists.value() + blocks.value() + steals.value() + fieldGoals
+        int score =
+            points.value() +
+            rebounds.value() +
+            assists.value() +
+            blocks.value() +
+            steals.value() +
+            fieldGoals.getSuccess() +
+            threePoints.getSuccess() +
+            freeThrows.getSuccess() -
+            turnovers.value() -
+            fieldGoals.getMissed() -
+            threePoints.getMissed() -
+            freeThrows.getMissed();
+        return new TwoDigitNumber(score);
     }
 
     public static PlayerStatBuilder builder() {

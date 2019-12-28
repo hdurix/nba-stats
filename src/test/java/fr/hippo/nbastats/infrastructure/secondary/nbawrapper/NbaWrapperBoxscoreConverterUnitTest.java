@@ -21,7 +21,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 public class NbaWrapperBoxscoreConverterUnitTest {
-    @Value("classpath:fixtures/game.json")
+    @Value("classpath:fixtures/boxscore.json")
     private Resource resource;
 
     @Mock
@@ -31,14 +31,14 @@ public class NbaWrapperBoxscoreConverterUnitTest {
     private NbaWrapperBoxscoreConverter converter;
 
     @Test
-    public void shouldMapMatch() throws IOException {
+    public void shouldMapGame() throws IOException {
         when(playerConverter.toDomain(argThat(activePlayer -> "201567".equals(activePlayer.getPersonId()))))
             .thenReturn(PlayerStatUnitTest.fullPlayerStat().build());
 
         Set<PlayerStat> playerStats = converter.extractStatForTeam(getBoxscore(), "1610612739");
 
         assertThat(playerStats.stream().filter(Objects::nonNull).findFirst().get())
-            .hasToString("B Lopez*64|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
+            .hasToString("B Lopez*76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     private Boxscore getBoxscore() throws IOException {

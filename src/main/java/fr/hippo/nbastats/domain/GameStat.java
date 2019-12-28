@@ -2,11 +2,11 @@ package fr.hippo.nbastats.domain;
 
 import org.springframework.util.Assert;
 
-public class MatchStat {
+public class GameStat {
     private final TeamStat away;
     private final TeamStat home;
 
-    public MatchStat(TeamStat away, TeamStat home) {
+    public GameStat(TeamStat away, TeamStat home) {
         Assert.notNull(away, "missing away team");
         Assert.notNull(home, "missing home team");
 

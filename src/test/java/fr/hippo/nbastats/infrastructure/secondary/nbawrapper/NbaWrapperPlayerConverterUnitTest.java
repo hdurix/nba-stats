@@ -28,7 +28,7 @@ public class NbaWrapperPlayerConverterUnitTest {
 
         PlayerStat playerStat = converter.toDomain(getActivePlayer());
 
-        assertThat(playerStat).hasToString("K Love  41|30  7  4  0  0\n" + "10/16  6/11  4/6 | 0|34'");
+        assertThat(playerStat).hasToString("K Love  48|30  7  4  0  0\n" + "10/16  6/11  4/6 | 0|34'");
     }
 
     private ActivePlayer getActivePlayer() throws JsonProcessingException {

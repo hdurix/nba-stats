@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NbaWrapperBoxscoreConverter {
+class NbaWrapperBoxscoreConverter {
     private final NbaWrapperPlayerConverter playerConverter;
 
     public NbaWrapperBoxscoreConverter(NbaWrapperPlayerConverter playerConverter) {

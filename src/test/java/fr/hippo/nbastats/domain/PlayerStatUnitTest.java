@@ -92,12 +92,12 @@ public class PlayerStatUnitTest {
 
     @Test
     public void shouldGetEvaluation() {
-        assertThat(brookLopez().eval()).isEqualTo(42 + 8 + 10 + 4 + 0);
+        assertThat(brookLopez().eval()).isEqualTo(76);
     }
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(brookLopez()).hasToString("B Lopez*64|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
+        assertThat(brookLopez()).hasToString("B Lopez*76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     public static PlayerStat brookLopez() {
