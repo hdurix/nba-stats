@@ -7,10 +7,11 @@ public class MatchStat {
     private final TeamStat home;
 
     public MatchStat(TeamStat away, TeamStat home) {
-        this.away = away;
-        this.home = home;
         Assert.notNull(away, "missing away team");
         Assert.notNull(home, "missing home team");
+
+        this.away = away;
+        this.home = home;
     }
 
     @Override

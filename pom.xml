@@ -41,7 +41,13 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
-	</dependencies>
+
+        <dependency>
+            <groupId>com.antoineguay</groupId>
+            <artifactId>nbawrapper</artifactId>
+            <version>0.0.6</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>

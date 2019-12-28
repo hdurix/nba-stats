@@ -20,7 +20,6 @@ public class PlayerStat {
     private PlayerStat(PlayerStatBuilder builder) {
         Assert.notNull(builder.identity, "missing identity");
         Assert.notNull(builder.fouls, "missing fouls");
-        Assert.notNull(builder.evaluation, "missing evaluation");
         Assert.notNull(builder.points, "missing points");
         Assert.notNull(builder.rebounds, "missing rebounds");
         Assert.notNull(builder.assists, "missing assists");
@@ -34,7 +33,6 @@ public class PlayerStat {
 
         this.identity = builder.identity;
         this.fouls = builder.fouls;
-        this.evaluation = builder.evaluation;
         this.points = builder.points;
         this.rebounds = builder.rebounds;
         this.assists = builder.assists;
@@ -45,6 +43,8 @@ public class PlayerStat {
         this.freeThrows = builder.freeThrows;
         this.turnovers = builder.turnovers;
         this.minutes = builder.minutes;
+
+        this.evaluation = new TwoDigitNumber(points.value() + rebounds.value() + assists.value() + blocks.value() + steals.value());
     }
 
     public static PlayerStatBuilder builder() {
@@ -89,7 +89,6 @@ public class PlayerStat {
     public static class PlayerStatBuilder {
         private Identity identity;
         private Fouls fouls;
-        private TwoDigitNumber evaluation;
         private TwoDigitNumber points;
         private TwoDigitNumber rebounds;
         private TwoDigitNumber assists;
@@ -109,12 +108,6 @@ public class PlayerStat {
 
         public PlayerStatBuilder fouls(Fouls fouls) {
             this.fouls = fouls;
-
-            return this;
-        }
-
-        public PlayerStatBuilder evaluation(TwoDigitNumber evaluation) {
-            this.evaluation = evaluation;
 
             return this;
         }

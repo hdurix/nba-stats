@@ -21,13 +21,6 @@ public class PlayerStatUnitTest {
     }
 
     @Test
-    public void shouldNotBuildWithoutEvaluation() {
-        assertThatThrownBy(() -> fullPlayerStat().evaluation(null).build())
-            .isExactlyInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("evaluation");
-    }
-
-    @Test
     public void shouldNotBuildWithoutPoints() {
         assertThatThrownBy(() -> fullPlayerStat().points(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
@@ -99,12 +92,12 @@ public class PlayerStatUnitTest {
 
     @Test
     public void shouldGetEvaluation() {
-        assertThat(brookLopez().eval()).isEqualTo(51);
+        assertThat(brookLopez().eval()).isEqualTo(42 + 8 + 10 + 4 + 0);
     }
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(brookLopez()).hasToString("B Lopez*51|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
+        assertThat(brookLopez()).hasToString("B Lopez*64|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     public static PlayerStat brookLopez() {
@@ -112,15 +105,14 @@ public class PlayerStatUnitTest {
     }
 
     public static PlayerStat jeremyLamb() {
-        return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).evaluation(new TwoDigitNumber(12)).build();
+        return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).points(new TwoDigitNumber(10)).build();
     }
 
-    private static PlayerStat.PlayerStatBuilder fullPlayerStat() {
+    public static PlayerStat.PlayerStatBuilder fullPlayerStat() {
         return PlayerStat
             .builder()
             .identity(IdentityUnitTest.defaultIdentity())
             .fouls(new Fouls(6))
-            .evaluation(new TwoDigitNumber(51))
             .points(new TwoDigitNumber(42))
             .rebounds(new TwoDigitNumber(8))
             .assists(new TwoDigitNumber(10))
