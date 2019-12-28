@@ -6,7 +6,7 @@ public enum TeamName {
     BOSTON("Boston", "Celtics", "Boston Celtics"),
     BROOKLYN("Brooklyn", "Nets", "Brooklyn Nets"),
     NEW_YORK("New York", "Knicks", "New York Knicks"),
-    PHILADELPHIA("Philadelphia 76", "rs", "Philadelphia 76ers"),
+    PHILADELPHIA("Philadelphia 76", "Sixers", "Philadelphia 76ers"),
     TORONTO("Toronto", "Raptors", "Toronto Raptors"),
     CHICAGO("Chicago", "Bulls", "Chicago Bulls"),
     CLEVELAND("Cleveland", "Cavaliers", "Cleveland Cavaliers"),

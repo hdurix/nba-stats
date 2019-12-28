@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 public class ReleaseGamesUnitTest {
-    private static final String STORAGE = "target/releases.txt";
+    private static final String STORAGE = "target/releases-test.txt";
 
     private ReleaseGames releaseGames;
 
