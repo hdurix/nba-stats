@@ -17,6 +17,11 @@ public class TwoDigitNumberUnitTest {
     }
 
     @Test
+    public void shouldHaveNegativeTwoDigitToStringWithoutSpace() {
+        assertThat(new TwoDigitNumber(-1)).hasToString("-1");
+    }
+
+    @Test
     public void shouldHaveOneDigitToStringWithSpaceWithSpace() {
         assertThat(new TwoDigitNumber(8)).hasToString(" 8");
     }

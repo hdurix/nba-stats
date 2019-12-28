@@ -13,9 +13,10 @@ public class TwoDigitNumber {
 
     @Override
     public String toString() {
-        if (value < 10) {
+        if (value >= 0 && value < 10) {
             return " " + value;
         }
+
         return String.valueOf(value);
     }
 }
