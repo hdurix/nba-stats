@@ -13,21 +13,34 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
 @Repository
 class NbaWrapperGames implements Games {
     public static final int STATUS_FINISHED = 3;
-    private final List<String> released = new ArrayList<>();
+    private List<String> released = new ArrayList<>();
 
     private final NbaWrapperScoreboards scoreboards;
+    private final ReleaseGames releaseGames;
     private final NbaWrapperBoxscores boxscores;
     private final NbaWrapperGameConverter gameConverter;
 
-    NbaWrapperGames(NbaWrapperScoreboards scoreboards, NbaWrapperBoxscores boxscores, NbaWrapperGameConverter gameConverter) {
+    NbaWrapperGames(
+        NbaWrapperScoreboards scoreboards,
+        ReleaseGames releaseGames,
+        NbaWrapperBoxscores boxscores,
+        NbaWrapperGameConverter gameConverter
+    ) {
         this.scoreboards = scoreboards;
+        this.releaseGames = releaseGames;
         this.boxscores = boxscores;
         this.gameConverter = gameConverter;
+    }
+
+    @PostConstruct
+    public void initReleases() {
+        released = releaseGames.findAll();
     }
 
     @Override
@@ -57,10 +70,15 @@ class NbaWrapperGames implements Games {
 
     private Function<GameDetails, GameStat> release() {
         return game -> {
-            released.add(game.getGameId());
+            storeRelease(game.getGameId());
 
             return gameConverter.toDomain(game, boxscores.findByGameId(getGameDate(game), game.getGameId()));
         };
+    }
+
+    private void storeRelease(String gameId) {
+        releaseGames.add(gameId);
+        released.add(gameId);
     }
 
     private LocalDate getGameDate(GameDetails game) {

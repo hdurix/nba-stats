@@ -9,7 +9,9 @@ import com.drmilk.nbawrapper.domain.utils.scoreboard.Scoreboard;
 import fr.hippo.nbastats.domain.GameStatUnitTest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +25,9 @@ class NbaWrapperGamesUnitTest {
     private NbaWrapperScoreboards scoreboards;
 
     @Mock
+    private ReleaseGames releaseGames;
+
+    @Mock
     private NbaWrapperBoxscores boxscores;
 
     @Mock
@@ -34,7 +39,8 @@ class NbaWrapperGamesUnitTest {
     @BeforeEach
     private void mockScoreboard() {
         LocalDate yesterday = LocalDate.now().minusDays(1);
-        when(scoreboards.forDate(yesterday)).thenReturn(buildScoreboard(yesterday, gameDetails("10", yesterday, 3)));
+        when(scoreboards.forDate(yesterday))
+            .thenReturn(buildScoreboard(yesterday, gameDetails("01", yesterday, 3), gameDetails("02", yesterday, 3)));
 
         LocalDate today = LocalDate.now();
         when(scoreboards.forDate(today))
@@ -49,7 +55,7 @@ class NbaWrapperGamesUnitTest {
 
     @BeforeEach
     private void mockBoxscores() {
-        when(boxscores.findByGameId(LocalDate.now().minusDays(1), "10")).thenReturn(new Boxscore());
+        when(boxscores.findByGameId(LocalDate.now().minusDays(1), "02")).thenReturn(new Boxscore());
         when(boxscores.findByGameId(LocalDate.now(), "12")).thenReturn(new Boxscore());
     }
 
@@ -58,12 +64,24 @@ class NbaWrapperGamesUnitTest {
         when(gameConverter.toDomain(any(GameDetails.class), any(Boxscore.class))).thenReturn(GameStatUnitTest.defaultGameStat());
     }
 
+    @BeforeEach
+    private void mockReleasedGames() {
+        when(releaseGames.findAll()).thenReturn(new ArrayList<>(List.of("01")));
+        games.initReleases();
+    }
+
     @Test
     public void shouldFindTwoUnreleasedGames() {
-        assertThat(games.findUnreleased()).isPresent();
-        assertThat(games.findUnreleased()).isPresent();
+        release();
+        release();
 
         assertThat(games.findUnreleased()).isEmpty();
+        verify(releaseGames).add("02");
+        verify(releaseGames).add("12");
+    }
+
+    private void release() {
+        assertThat(games.findUnreleased()).isPresent();
     }
 
     private GameDetails gameDetails(String gameId, LocalDate gameDate, int status) {

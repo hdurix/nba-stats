@@ -15,10 +15,14 @@ class TelegramGameNotifier implements GameNotifier {
     private static final Logger log = LoggerFactory.getLogger(TelegramGameNotifier.class);
 
     private final RestTemplate restTemplate;
-    private final int chatId;
+    private final String chatId;
     private final String botId;
 
-    TelegramGameNotifier(RestTemplate restTemplate, @Value("${telegram.bot_id}") String botId, @Value("${telegram.chat_id}") int chatId) {
+    TelegramGameNotifier(
+        RestTemplate restTemplate,
+        @Value("${telegram.bot_id}") String botId,
+        @Value("${telegram.chat_id}") String chatId
+    ) {
         this.restTemplate = restTemplate;
         this.chatId = chatId;
         this.botId = botId;
