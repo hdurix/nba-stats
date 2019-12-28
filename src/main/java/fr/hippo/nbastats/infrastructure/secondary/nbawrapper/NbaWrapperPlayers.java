@@ -4,11 +4,15 @@ import com.drmilk.nbawrapper.domain.Player;
 import com.drmilk.nbawrapper.domain.PlayerMin;
 import com.drmilk.nbawrapper.exception.PlayerNotFoundException;
 import fr.hippo.nbastats.domain.Identity;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@CacheConfig(cacheNames = "players")
 class NbaWrapperPlayers {
 
+    @Cacheable
     public Identity getIdentityFromPlayerId(String playerId) {
         PlayerMin player;
         try {
