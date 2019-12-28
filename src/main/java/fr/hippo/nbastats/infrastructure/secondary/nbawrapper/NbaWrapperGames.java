@@ -22,25 +22,25 @@ class NbaWrapperGames implements Games {
     private List<String> released = new ArrayList<>();
 
     private final NbaWrapperScoreboards scoreboards;
-    private final ReleaseGames releaseGames;
+    private final ReleasedGames releasedGames;
     private final NbaWrapperBoxscores boxscores;
     private final NbaWrapperGameConverter gameConverter;
 
     NbaWrapperGames(
         NbaWrapperScoreboards scoreboards,
-        ReleaseGames releaseGames,
+        ReleasedGames releasedGames,
         NbaWrapperBoxscores boxscores,
         NbaWrapperGameConverter gameConverter
     ) {
         this.scoreboards = scoreboards;
-        this.releaseGames = releaseGames;
+        this.releasedGames = releasedGames;
         this.boxscores = boxscores;
         this.gameConverter = gameConverter;
     }
 
     @PostConstruct
     public void initReleases() {
-        released = releaseGames.findAll();
+        released = releasedGames.findAll();
     }
 
     @Override
@@ -77,7 +77,7 @@ class NbaWrapperGames implements Games {
     }
 
     private void storeRelease(String gameId) {
-        releaseGames.add(gameId);
+        releasedGames.add(gameId);
         released.add(gameId);
     }
 

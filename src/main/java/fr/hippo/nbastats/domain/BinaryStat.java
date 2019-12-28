@@ -1,10 +1,10 @@
 package fr.hippo.nbastats.domain;
 
-public class TwoValues {
+public class BinaryStat {
     private final int success;
     private final int total;
 
-    public TwoValues(int success, int total) {
+    public BinaryStat(int success, int total) {
         this.success = success;
         this.total = total;
     }

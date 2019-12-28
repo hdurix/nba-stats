@@ -25,7 +25,7 @@ class NbaWrapperGamesUnitTest {
     private NbaWrapperScoreboards scoreboards;
 
     @Mock
-    private ReleaseGames releaseGames;
+    private ReleasedGames releasedGames;
 
     @Mock
     private NbaWrapperBoxscores boxscores;
@@ -66,7 +66,7 @@ class NbaWrapperGamesUnitTest {
 
     @BeforeEach
     private void mockReleasedGames() {
-        when(releaseGames.findAll()).thenReturn(new ArrayList<>(List.of("01")));
+        when(releasedGames.findAll()).thenReturn(new ArrayList<>(List.of("01")));
         games.initReleases();
     }
 
@@ -76,8 +76,8 @@ class NbaWrapperGamesUnitTest {
         release();
 
         assertThat(games.findUnreleased()).isEmpty();
-        verify(releaseGames).add("02");
-        verify(releaseGames).add("12");
+        verify(releasedGames).add("02");
+        verify(releasedGames).add("12");
     }
 
     private void release() {

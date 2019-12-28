@@ -105,7 +105,7 @@ public class PlayerStatUnitTest {
     }
 
     public static PlayerStat jeremyLamb() {
-        return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).points(new TwoDigitNumber(10)).build();
+        return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).points(new UnaryStat(10)).build();
     }
 
     public static PlayerStat.PlayerStatBuilder fullPlayerStat() {
@@ -113,15 +113,15 @@ public class PlayerStatUnitTest {
             .builder()
             .identity(IdentityUnitTest.defaultIdentity())
             .fouls(new Fouls(6))
-            .points(new TwoDigitNumber(42))
-            .rebounds(new TwoDigitNumber(8))
-            .assists(new TwoDigitNumber(10))
-            .blocks(new TwoDigitNumber(4))
-            .steals(new TwoDigitNumber(0))
-            .fieldGoals(new TwoValues(9, 12))
-            .threePoints(new TwoValues(10, 13))
-            .freeThrows(new TwoValues(4, 5))
-            .turnovers(new TwoDigitNumber(4))
-            .minutes(new TwoDigitNumber(34));
+            .points(new UnaryStat(42))
+            .rebounds(new UnaryStat(8))
+            .assists(new UnaryStat(10))
+            .blocks(new UnaryStat(4))
+            .steals(new UnaryStat(0))
+            .fieldGoals(new BinaryStat(9, 12))
+            .threePoints(new BinaryStat(10, 13))
+            .freeThrows(new BinaryStat(4, 5))
+            .turnovers(new UnaryStat(4))
+            .minutes(new UnaryStat(34));
     }
 }

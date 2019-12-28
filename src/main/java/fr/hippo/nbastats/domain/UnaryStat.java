@@ -1,9 +1,9 @@
 package fr.hippo.nbastats.domain;
 
-public class TwoDigitNumber {
+public class UnaryStat {
     private final int value;
 
-    public TwoDigitNumber(int value) {
+    public UnaryStat(int value) {
         this.value = value;
     }
 

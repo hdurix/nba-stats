@@ -12,14 +12,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class ReleaseGamesUnitTest {
+public class ReleasedGamesUnitTest {
     private static final String STORAGE = "target/releases-test.txt";
 
-    private ReleaseGames releaseGames;
+    private ReleasedGames releasedGames;
 
     @BeforeEach
     public void setup() {
-        releaseGames = new ReleaseGames(STORAGE);
+        releasedGames = new ReleasedGames(STORAGE);
     }
 
     @AfterEach
@@ -29,7 +29,7 @@ public class ReleaseGamesUnitTest {
 
     @Test
     public void shouldAddRelease() throws IOException {
-        releaseGames.add("1234");
+        releasedGames.add("1234");
 
         assertThat(new String(Files.readAllBytes(Paths.get(STORAGE)))).isEqualTo("1234\n");
     }
@@ -38,23 +38,23 @@ public class ReleaseGamesUnitTest {
     public void shouldNotAddRelease() throws IOException {
         String storageUrl = "/root/super-powered";
 
-        new ReleaseGames(storageUrl).add("1234");
+        new ReleasedGames(storageUrl).add("1234");
 
         assertThat(Files.exists(Paths.get(storageUrl))).isFalse();
     }
 
     @Test
     public void shouldFindAllReleases() {
-        releaseGames.add("1234");
-        releaseGames.add("5678");
+        releasedGames.add("1234");
+        releasedGames.add("5678");
 
-        assertThat(releaseGames.findAll()).containsExactly("1234", "5678");
+        assertThat(releasedGames.findAll()).containsExactly("1234", "5678");
     }
 
     @Test
     public void shouldFindEmptyReleaseOnError() throws IOException {
         String storageUrl = "/root/super-powered";
 
-        assertThat(releaseGames.findAll()).isEmpty();
+        assertThat(releasedGames.findAll()).isEmpty();
     }
 }

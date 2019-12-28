@@ -15,14 +15,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ReleaseGames {
-    private static final Logger log = LoggerFactory.getLogger(ReleaseGames.class);
+public class ReleasedGames {
+    private static final Logger log = LoggerFactory.getLogger(ReleasedGames.class);
 
     private static final String ID_SEPARATOR = "\n";
 
     private final Path storagePath;
 
-    public ReleaseGames(@Value("${games.storage}") String storageUrl) {
+    public ReleasedGames(@Value("${games.storage}") String storageUrl) {
         this.storagePath = Paths.get(storageUrl);
     }
 

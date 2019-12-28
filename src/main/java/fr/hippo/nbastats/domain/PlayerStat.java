@@ -5,17 +5,17 @@ import org.springframework.util.Assert;
 public class PlayerStat {
     private final Identity identity;
     private final Fouls fouls;
-    private final TwoDigitNumber evaluation;
-    private final TwoDigitNumber points;
-    private final TwoDigitNumber rebounds;
-    private final TwoDigitNumber assists;
-    private final TwoDigitNumber blocks;
-    private final TwoDigitNumber steals;
-    private final TwoValues fieldGoals;
-    private final TwoValues threePoints;
-    private final TwoValues freeThrows;
-    private final TwoDigitNumber turnovers;
-    private final TwoDigitNumber minutes;
+    private final UnaryStat evaluation;
+    private final UnaryStat points;
+    private final UnaryStat rebounds;
+    private final UnaryStat assists;
+    private final UnaryStat blocks;
+    private final UnaryStat steals;
+    private final BinaryStat fieldGoals;
+    private final BinaryStat threePoints;
+    private final BinaryStat freeThrows;
+    private final UnaryStat turnovers;
+    private final UnaryStat minutes;
 
     private PlayerStat(PlayerStatBuilder builder) {
         Assert.notNull(builder.identity, "missing identity");
@@ -47,13 +47,7 @@ public class PlayerStat {
         this.evaluation = ttflEvaluation();
     }
 
-    private TwoDigitNumber ttflEvaluation() {
-        //POINTS + REBONDS + PASSES + INTERCEPTIONS + CONTRES + TIRS RÉUSSIS + 3 POINTS RÉUSSIS + LANCERS RÉUSSIS
-        //
-        //(moins)
-        //
-        //BALLES PERDUES + TIRS RATÉS + TROIS POINTS RATÉS + LANCERS RATÉS
-        //        points.value() + rebounds.value() + assists.value() + blocks.value() + steals.value() + fieldGoals
+    private UnaryStat ttflEvaluation() {
         int score =
             points.value() +
             rebounds.value() +
@@ -67,7 +61,7 @@ public class PlayerStat {
             fieldGoals.getMissed() -
             threePoints.getMissed() -
             freeThrows.getMissed();
-        return new TwoDigitNumber(score);
+        return new UnaryStat(score);
     }
 
     public static PlayerStatBuilder builder() {
@@ -112,16 +106,16 @@ public class PlayerStat {
     public static class PlayerStatBuilder {
         private Identity identity;
         private Fouls fouls;
-        private TwoDigitNumber points;
-        private TwoDigitNumber rebounds;
-        private TwoDigitNumber assists;
-        private TwoDigitNumber blocks;
-        private TwoDigitNumber steals;
-        private TwoValues fieldGoals;
-        private TwoValues threePoints;
-        private TwoValues freeThrows;
-        private TwoDigitNumber turnovers;
-        private TwoDigitNumber minutes;
+        private UnaryStat points;
+        private UnaryStat rebounds;
+        private UnaryStat assists;
+        private UnaryStat blocks;
+        private UnaryStat steals;
+        private BinaryStat fieldGoals;
+        private BinaryStat threePoints;
+        private BinaryStat freeThrows;
+        private UnaryStat turnovers;
+        private UnaryStat minutes;
 
         public PlayerStatBuilder identity(Identity identity) {
             this.identity = identity;
@@ -135,61 +129,61 @@ public class PlayerStat {
             return this;
         }
 
-        public PlayerStatBuilder points(TwoDigitNumber points) {
+        public PlayerStatBuilder points(UnaryStat points) {
             this.points = points;
 
             return this;
         }
 
-        public PlayerStatBuilder rebounds(TwoDigitNumber rebounds) {
+        public PlayerStatBuilder rebounds(UnaryStat rebounds) {
             this.rebounds = rebounds;
 
             return this;
         }
 
-        public PlayerStatBuilder assists(TwoDigitNumber assists) {
+        public PlayerStatBuilder assists(UnaryStat assists) {
             this.assists = assists;
 
             return this;
         }
 
-        public PlayerStatBuilder blocks(TwoDigitNumber blocks) {
+        public PlayerStatBuilder blocks(UnaryStat blocks) {
             this.blocks = blocks;
 
             return this;
         }
 
-        public PlayerStatBuilder steals(TwoDigitNumber steals) {
+        public PlayerStatBuilder steals(UnaryStat steals) {
             this.steals = steals;
 
             return this;
         }
 
-        public PlayerStatBuilder fieldGoals(TwoValues fieldGoals) {
+        public PlayerStatBuilder fieldGoals(BinaryStat fieldGoals) {
             this.fieldGoals = fieldGoals;
 
             return this;
         }
 
-        public PlayerStatBuilder threePoints(TwoValues threePoints) {
+        public PlayerStatBuilder threePoints(BinaryStat threePoints) {
             this.threePoints = threePoints;
 
             return this;
         }
 
-        public PlayerStatBuilder freeThrows(TwoValues freeThrows) {
+        public PlayerStatBuilder freeThrows(BinaryStat freeThrows) {
             this.freeThrows = freeThrows;
 
             return this;
         }
 
-        public PlayerStatBuilder turnovers(TwoDigitNumber turnover) {
+        public PlayerStatBuilder turnovers(UnaryStat turnover) {
             this.turnovers = turnover;
 
             return this;
         }
 
-        public PlayerStatBuilder minutes(TwoDigitNumber minutes) {
+        public PlayerStatBuilder minutes(UnaryStat minutes) {
             this.minutes = minutes;
 
             return this;
