@@ -1,13 +1,12 @@
 package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
-import static java.lang.Integer.*;
-
 import com.drmilk.nbawrapper.domain.utils.boxscore.ActivePlayer;
 import fr.hippo.nbastats.domain.BinaryStat;
 import fr.hippo.nbastats.domain.Fouls;
 import fr.hippo.nbastats.domain.Identity;
 import fr.hippo.nbastats.domain.PlayerStat;
 import fr.hippo.nbastats.domain.UnaryStat;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,17 +23,31 @@ class NbaWrapperPlayerConverter {
         return PlayerStat
             .builder()
             .identity(identity)
-            .fouls(new Fouls(parseInt(player.getPFouls())))
-            .points(new UnaryStat(parseInt(player.getPoints())))
-            .rebounds(new UnaryStat(parseInt(player.getTotReb())))
-            .assists(new UnaryStat(parseInt(player.getAssists())))
-            .blocks(new UnaryStat(parseInt(player.getBlocks())))
-            .steals(new UnaryStat(parseInt(player.getSteals())))
-            .fieldGoals(new BinaryStat(parseInt(player.getFgm()), parseInt(player.getFga())))
-            .threePoints(new BinaryStat(parseInt(player.getTpm()), parseInt(player.getTpa())))
-            .freeThrows(new BinaryStat(parseInt(player.getFtm()), parseInt(player.getFta())))
-            .turnovers(new UnaryStat(parseInt(player.getTurnovers())))
-            .minutes(new UnaryStat(parseInt(player.getMin().split(":")[0])))
+            .fouls(new Fouls(parseStat(player.getPFouls())))
+            .points(new UnaryStat(parseStat(player.getPoints())))
+            .rebounds(new UnaryStat(parseStat(player.getTotReb())))
+            .assists(new UnaryStat(parseStat(player.getAssists())))
+            .blocks(new UnaryStat(parseStat(player.getBlocks())))
+            .steals(new UnaryStat(parseStat(player.getSteals())))
+            .fieldGoals(new BinaryStat(parseStat(player.getFgm()), parseStat(player.getFga())))
+            .threePoints(new BinaryStat(parseStat(player.getTpm()), parseStat(player.getTpa())))
+            .freeThrows(new BinaryStat(parseStat(player.getFtm()), parseStat(player.getFta())))
+            .turnovers(new UnaryStat(parseStat(player.getTurnovers())))
+            .minutes(new UnaryStat(parseMinutes(player.getMin())))
             .build();
+    }
+
+    private int parseStat(String stat) {
+        if (StringUtils.isBlank(stat)) {
+            return 0;
+        }
+        return Integer.parseInt(stat);
+    }
+
+    private int parseMinutes(String minutes) {
+        if (StringUtils.isBlank(minutes)) {
+            return 0;
+        }
+        return parseStat(minutes.split(":")[0]);
     }
 }

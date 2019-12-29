@@ -31,11 +31,24 @@ public class NbaWrapperPlayerConverterUnitTest {
         assertThat(playerStat).hasToString("K Love  48|30  7  4  0  0\n" + "10/16  6/11  4/6 | 0|34'");
     }
 
-    private ActivePlayer getActivePlayer() throws JsonProcessingException {
-        return new ObjectMapper().readValue(defaultJson(), ActivePlayer.class);
+    @Test
+    public void shouldMapPlayerDidNotPlayed() throws JsonProcessingException {
+        when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity("Kevin", "Love"));
+
+        PlayerStat playerStat = converter.toDomain(getActivePlayer(false));
+
+        assertThat(playerStat).hasToString("K Love  48|30  7  4  0  0\n" + "10/16  6/11  4/6 | 0| 0'");
     }
 
-    private String defaultJson() {
+    private ActivePlayer getActivePlayer() throws JsonProcessingException {
+        return getActivePlayer(true);
+    }
+
+    private ActivePlayer getActivePlayer(boolean played) throws JsonProcessingException {
+        return new ObjectMapper().readValue(defaultJson(played), ActivePlayer.class);
+    }
+
+    private String defaultJson(boolean played) {
         return (
             "{\n" +
             "        \"personId\": \"201567\",\n" +
@@ -48,7 +61,9 @@ public class NbaWrapperPlayerConverterUnitTest {
             "        \"pos\": \"PF\",\n" +
             "        \"position_full\": \"Power Forward\",\n" +
             "        \"player_code\": \"kevin_love\",\n" +
-            "        \"min\": \"34:40\",\n" +
+            "        \"min\": \"" +
+            (played ? "34:40" : "") +
+            "\",\n" +
             "        \"fgm\": \"10\",\n" +
             "        \"fga\": \"16\",\n" +
             "        \"fgp\": \"62.5\",\n" +
@@ -64,7 +79,7 @@ public class NbaWrapperPlayerConverterUnitTest {
             "        \"assists\": \"4\",\n" +
             "        \"pFouls\": \"2\",\n" +
             "        \"steals\": \"0\",\n" +
-            "        \"turnovers\": \"0\",\n" +
+            "        \"turnovers\": \"\",\n" +
             "        \"blocks\": \"0\",\n" +
             "        \"plusMinus\": \"-6\",\n" +
             "        \"dnp\": \"\",\n" +
