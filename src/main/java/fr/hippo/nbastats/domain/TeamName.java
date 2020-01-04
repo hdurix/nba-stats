@@ -31,7 +31,7 @@ public enum TeamName {
     DALLAS("Dallas", "Mavericks", "Dallas Mavericks"),
     HOUSTON("Houston", "Rockets", "Houston Rockets"),
     MEMPHIS("Memphis", "Grizzlies", "Memphis Grizzlies"),
-    NEW_ORLEANS("New Orleans", "Hornets", "New Orleans Hornets"),
+    NEW_ORLEANS("New Orleans", "Pelicans", "New Orleans Pelicans"),
     SAN_ANTONIO("San Antonio", "Spurs", "San Antonio Spurs");
     private final String city;
     private final String nickname;
@@ -57,6 +57,6 @@ public enum TeamName {
 
     @Override
     public String toString() {
-        return StringUtils.center(" " + fullName + " ", 25, "-");
+        return StringUtils.center(" " + fullName + " ", 29, "-");
     }
 }

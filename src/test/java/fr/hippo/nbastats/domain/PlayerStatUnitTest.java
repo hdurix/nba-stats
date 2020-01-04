@@ -97,7 +97,7 @@ public class PlayerStatUnitTest {
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(brookLopez()).hasToString("B Lopez*76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
+        assertThat(brookLopez()).hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     public static PlayerStat brookLopez() {

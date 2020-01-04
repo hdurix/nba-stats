@@ -47,14 +47,14 @@ public class NbaWrapperGameConverterUnitTest {
 
         assertThat(gameStat)
             .hasToString(
-                "Cavaliers 117 - Celtics 129\n" +
+                " Cavaliers 117 - Celtics 129 \n" +
                 "\n" +
-                "-- Cleveland Cavaliers --\n" +
-                "J Lamb *44|10  8 10  4  0\n" +
+                "---- Cleveland Cavaliers ----\n" +
+                "J. Lamb    *44|10  8 10  4  0\n" +
                 " 9/12 10/13  4/5 | 4|34'\n" +
                 "\n" +
-                "---- Boston Celtics -----\n" +
-                "B Lopez*76|42  8 10  4  0\n" +
+                "------ Boston Celtics -------\n" +
+                "B. Lopez   *76|42  8 10  4  0\n" +
                 " 9/12 10/13  4/5 | 4|34'"
             );
     }

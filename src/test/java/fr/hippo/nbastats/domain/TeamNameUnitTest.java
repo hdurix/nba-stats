@@ -24,8 +24,8 @@ public class TeamNameUnitTest {
 
     @Test
     public void shouldHaveToStringCenteredWithHyphens() {
-        assertThat(TeamName.ORLANDO.toString()).isEqualTo("----- Orlando Magic -----");
-        assertThat(TeamName.MINNESOTA.toString()).isEqualTo(" Minnesota Timberwolves -");
+        assertThat(TeamName.ORLANDO.toString()).isEqualTo("------- Orlando Magic -------");
+        assertThat(TeamName.MINNESOTA.toString()).isEqualTo("-- Minnesota Timberwolves ---");
 
         Arrays.stream(TeamName.values()).map(TeamName::toString).forEach(System.out::println);
     }

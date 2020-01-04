@@ -8,22 +8,22 @@ public class IdentityUnitTest {
 
     @Test
     public void shouldHaveEmptyIdentity() {
-        assertThat(new Identity(null, null)).hasToString("       ");
+        assertThat(new Identity(null, null)).hasToString(" .         ");
     }
 
     @Test
     public void shouldHaveTruncatedLongName() {
-        assertThat(new Identity("Giannis", "Antetokounmpo")).hasToString("G Antet");
+        assertThat(new Identity("Giannis", "Antetokounmpo")).hasToString("G. Antetoko");
     }
 
     @Test
     public void shouldHaveFullName() {
-        assertThat(new Identity("Brook", "Lopez")).hasToString("B Lopez");
+        assertThat(new Identity("Brook", "Lopez")).hasToString("B. Lopez   ");
     }
 
     @Test
-    public void shouldHaveShortName() {
-        assertThat(new Identity("Jeremy", "Lamb")).hasToString("J Lamb ");
+    public void shouldHaveShortFirstName() {
+        assertThat(new Identity("Mo", "Bamba")).hasToString("M. Bamba   ");
     }
 
     public static Identity defaultIdentity() {

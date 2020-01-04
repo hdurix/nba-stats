@@ -38,7 +38,7 @@ public class NbaWrapperBoxscoreConverterUnitTest {
         Set<PlayerStat> playerStats = converter.extractStatForTeam(getBoxscore(), "1610612739");
 
         assertThat(playerStats.stream().filter(Objects::nonNull).findFirst().get())
-            .hasToString("B Lopez*76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
+            .hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     private Boxscore getBoxscore() throws IOException {

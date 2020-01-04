@@ -35,6 +35,6 @@ class TelegramGameNotifierUnitTest {
 
         URI url = captor.getValue();
         assertThat(url.toString())
-            .startsWith("https://api.telegram.org/bot123:abc/sendMessage?chat_id=456&parse_mode=html&text=%3Cpre%3EPacers");
+            .startsWith("https://api.telegram.org/bot123:abc/sendMessage?chat_id=456&parse_mode=html&text=%3Cpre%3E%20%20Pacers");
     }
 }

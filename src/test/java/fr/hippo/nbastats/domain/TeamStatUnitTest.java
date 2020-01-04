@@ -46,7 +46,7 @@ public class TeamStatUnitTest {
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(detroit()).hasToString("---- Detroit Pistons ----\n" + brookLopez() + "\n\n" + jeremyLamb());
+        assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb());
     }
 
     public static TeamStat detroit() {

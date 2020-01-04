@@ -17,13 +17,13 @@ public class NbaWrapperPlayersUnitTest {
     public void shouldGetPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("201567");
 
-        assertThat(identity).hasToString("K Love ");
+        assertThat(identity).hasToString("K. Love    ");
     }
 
     @Test
     public void shouldGetUnknownPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("000000");
 
-        assertThat(identity).hasToString("? ???  ");
+        assertThat(identity).hasToString("?. ???     ");
     }
 }

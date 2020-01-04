@@ -1,5 +1,6 @@
 package fr.hippo.nbastats.domain;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;
 
 public class GameStat {
@@ -16,18 +17,10 @@ public class GameStat {
 
     @Override
     public String toString() {
-        return (
-            away.getName().nickname() +
-            " " +
-            away.getScore() +
-            " - " +
-            home.getName().nickname() +
-            " " +
-            home.getScore() +
-            "\n\n" +
-            away +
-            "\n\n" +
-            home
-        );
+        return StringUtils.center(score(), 29, " ") + "\n\n" + away + "\n\n" + home;
+    }
+
+    private String score() {
+        return away.getName().nickname() + " " + away.getScore() + " - " + home.getName().nickname() + " " + home.getScore();
     }
 }

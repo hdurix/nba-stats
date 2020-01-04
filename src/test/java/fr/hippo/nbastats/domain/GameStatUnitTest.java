@@ -23,7 +23,7 @@ public class GameStatUnitTest {
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(defaultGameStat()).hasToString("Pacers 123 - Pistons 124\n\n" + indiana() + "\n\n" + detroit());
+        assertThat(defaultGameStat()).hasToString("  Pacers 123 - Pistons 124   \n\n" + indiana() + "\n\n" + detroit());
     }
 
     public static GameStat defaultGameStat() {
