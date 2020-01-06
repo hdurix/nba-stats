@@ -3,7 +3,7 @@ package fr.hippo.nbastats.domain;
 import static fr.hippo.nbastats.domain.PlayerStatUnitTest.*;
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.Set;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class TeamStatUnitTest {
@@ -39,14 +39,16 @@ public class TeamStatUnitTest {
 
     @Test
     public void shouldGetPlayersOrderedByEvaluation() {
-        Set<PlayerStat> players = detroit().getPlayers();
+        List<PlayerStat> players = detroit().getPlayers();
 
-        assertThat(players).extracting(PlayerStat::toString).containsExactly(brookLopez().toString(), jeremyLamb().toString());
+        assertThat(players)
+            .extracting(PlayerStat::toString)
+            .containsExactly(brookLopez().toString(), jeremyLamb().toString(), moBamba().toString(), didNotPlayed().toString());
     }
 
     @Test
     public void shouldHaveFullToString() {
-        assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb());
+        assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba());
     }
 
     public static TeamStat detroit() {
@@ -57,7 +59,7 @@ public class TeamStatUnitTest {
         return new TeamStat(TeamName.INDIANA, 123, players());
     }
 
-    private static Set<PlayerStat> players() {
-        return Set.of(jeremyLamb(), brookLopez());
+    private static List<PlayerStat> players() {
+        return List.of(jeremyLamb(), didNotPlayed(), brookLopez(), moBamba());
     }
 }

@@ -11,7 +11,7 @@ import fr.hippo.nbastats.domain.PlayerStatUnitTest;
 import fr.hippo.nbastats.domain.TeamName;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Set;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -40,8 +40,8 @@ public class NbaWrapperGameConverterUnitTest {
         Boxscore boxscore = new Boxscore();
         when(teams.findById("1610612738")).thenReturn(TeamName.BOSTON);
         when(teams.findById("1610612739")).thenReturn(TeamName.CLEVELAND);
-        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612738")).thenReturn(Set.of(PlayerStatUnitTest.brookLopez()));
-        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612739")).thenReturn(Set.of(PlayerStatUnitTest.jeremyLamb()));
+        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612738")).thenReturn(List.of(PlayerStatUnitTest.brookLopez()));
+        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612739")).thenReturn(List.of(PlayerStatUnitTest.jeremyLamb()));
 
         GameStat gameStat = converter.toDomain(gameDetails, boxscore);
 

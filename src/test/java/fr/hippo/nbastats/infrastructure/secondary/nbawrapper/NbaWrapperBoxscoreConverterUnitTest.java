@@ -1,16 +1,16 @@
 package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
+import static fr.hippo.nbastats.domain.PlayerStatUnitTest.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import com.drmilk.nbawrapper.domain.utils.boxscore.Boxscore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.hippo.nbastats.domain.PlayerStat;
-import fr.hippo.nbastats.domain.PlayerStatUnitTest;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -32,10 +32,9 @@ public class NbaWrapperBoxscoreConverterUnitTest {
 
     @Test
     public void shouldMapGame() throws IOException {
-        when(playerConverter.toDomain(argThat(activePlayer -> "201567".equals(activePlayer.getPersonId()))))
-            .thenReturn(PlayerStatUnitTest.fullPlayerStat().build());
+        when(playerConverter.toDomain(argThat(activePlayer -> "201567".equals(activePlayer.getPersonId())))).thenReturn(brookLopez());
 
-        Set<PlayerStat> playerStats = converter.extractStatForTeam(getBoxscore(), "1610612739");
+        List<PlayerStat> playerStats = converter.extractStatForTeam(getBoxscore(), "1610612739");
 
         assertThat(playerStats.stream().filter(Objects::nonNull).findFirst().get())
             .hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");

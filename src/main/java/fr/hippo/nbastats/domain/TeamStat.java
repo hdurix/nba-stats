@@ -1,9 +1,9 @@
 package fr.hippo.nbastats.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.util.Assert;
 
@@ -12,9 +12,9 @@ public class TeamStat {
 
     private final TeamName name;
     private final int score;
-    private final Set<PlayerStat> players;
+    private final List<PlayerStat> players;
 
-    public TeamStat(TeamName name, int score, Set<PlayerStat> players) {
+    public TeamStat(TeamName name, int score, List<PlayerStat> players) {
         Assert.notNull(name, "missing name");
         Assert.notNull(players, "missing players");
 
@@ -23,10 +23,10 @@ public class TeamStat {
         this.players = buildPlayers(players);
     }
 
-    private Set<PlayerStat> buildPlayers(Set<PlayerStat> players) {
-        TreeSet<PlayerStat> playerStats = new TreeSet<>(PLAYER_STAT_COMPARATOR);
-        playerStats.addAll(players);
-        return Collections.unmodifiableSet(playerStats);
+    private List<PlayerStat> buildPlayers(List<PlayerStat> players) {
+        List<PlayerStat> playerStats = new ArrayList<>(players);
+        Collections.sort(playerStats, PLAYER_STAT_COMPARATOR);
+        return Collections.unmodifiableList(playerStats);
     }
 
     public TeamName getName() {
@@ -37,12 +37,12 @@ public class TeamStat {
         return score;
     }
 
-    public Set<PlayerStat> getPlayers() {
+    public List<PlayerStat> getPlayers() {
         return players;
     }
 
     @Override
     public String toString() {
-        return name + "\n" + players.stream().map(PlayerStat::toString).collect(Collectors.joining("\n\n"));
+        return name + "\n" + players.stream().filter(PlayerStat::played).map(PlayerStat::toString).collect(Collectors.joining("\n\n"));
     }
 }

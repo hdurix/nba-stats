@@ -72,6 +72,10 @@ public class PlayerStat {
         return evaluation.value();
     }
 
+    public boolean played() {
+        return minutes.value() > 0;
+    }
+
     @Override
     public String toString() {
         return (

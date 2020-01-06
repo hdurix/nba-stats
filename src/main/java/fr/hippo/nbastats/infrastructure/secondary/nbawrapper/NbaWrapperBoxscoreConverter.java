@@ -2,7 +2,7 @@ package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
 import com.drmilk.nbawrapper.domain.utils.boxscore.Boxscore;
 import fr.hippo.nbastats.domain.PlayerStat;
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +14,13 @@ class NbaWrapperBoxscoreConverter {
         this.playerConverter = playerConverter;
     }
 
-    public Set<PlayerStat> extractStatForTeam(Boxscore boxscore, String teamId) {
+    public List<PlayerStat> extractStatForTeam(Boxscore boxscore, String teamId) {
         return boxscore
             .getStats()
             .getActivePlayers()
             .stream()
             .filter(activePlayer -> activePlayer.getTeamId().equals(teamId))
             .map(playerConverter::toDomain)
-            .collect(Collectors.toSet());
+            .collect(Collectors.toList());
     }
 }

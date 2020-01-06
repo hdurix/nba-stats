@@ -96,6 +96,16 @@ public class PlayerStatUnitTest {
     }
 
     @Test
+    public void shouldGetPlayedWithMinutes() {
+        assertThat(brookLopez().played()).isTrue();
+    }
+
+    @Test
+    public void shouldGetNotPlayedWithNoMinute() {
+        assertThat(didNotPlayed().played()).isFalse();
+    }
+
+    @Test
     public void shouldHaveFullToString() {
         assertThat(brookLopez()).hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
@@ -106,6 +116,19 @@ public class PlayerStatUnitTest {
 
     public static PlayerStat jeremyLamb() {
         return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).points(new UnaryStat(10)).build();
+    }
+
+    public static PlayerStat moBamba() {
+        return fullPlayerStat().identity(new Identity("Mo", "Bamba")).points(new UnaryStat(10)).build();
+    }
+
+    public static PlayerStat didNotPlayed() {
+        return fullPlayerStat()
+            .identity(new Identity("Not", "Playing"))
+            .points(new UnaryStat(0))
+            .rebounds(new UnaryStat(0))
+            .minutes(new UnaryStat(0))
+            .build();
     }
 
     public static PlayerStat.PlayerStatBuilder fullPlayerStat() {
