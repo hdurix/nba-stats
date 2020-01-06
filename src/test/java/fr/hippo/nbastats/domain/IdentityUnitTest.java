@@ -21,11 +21,6 @@ public class IdentityUnitTest {
         assertThat(new Identity("Brook", "Lopez")).hasToString("B. Lopez   ");
     }
 
-    @Test
-    public void shouldHaveShortFirstName() {
-        assertThat(new Identity("Mo", "Bamba")).hasToString("M. Bamba   ");
-    }
-
     public static Identity defaultIdentity() {
         return new Identity("Brook", "Lopez");
     }
