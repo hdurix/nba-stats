@@ -12,6 +12,8 @@ The running channel is available at https://t.me/nba_games.
 
 A library is used for getting NBA statistics: [nbawrapper-stats][]. Many thanks to [@antoineguay1][] for his great work!
 
+[![codecov](https://codecov.io/gh/hdurix/nba-stats/branch/master/graph/badge.svg)](https://codecov.io/gh/hdurix/nba-stats)
+
 ## Environment variables
 
 Before running the app (development, tests, production), be sure to provide 2 environment variables:
