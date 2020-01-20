@@ -33,6 +33,7 @@ public enum TeamName {
     MEMPHIS("Memphis", "Grizzlies", "Memphis Grizzlies"),
     NEW_ORLEANS("New Orleans", "Pelicans", "New Orleans Pelicans"),
     SAN_ANTONIO("San Antonio", "Spurs", "San Antonio Spurs");
+
     private final String city;
     private final String nickname;
     private final String fullName;
