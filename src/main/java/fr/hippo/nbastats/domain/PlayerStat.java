@@ -76,6 +76,10 @@ public class PlayerStat {
         return minutes.value() > 0;
     }
 
+    public int id() {
+        return identity.getId();
+    }
+
     @Override
     public String toString() {
         return (

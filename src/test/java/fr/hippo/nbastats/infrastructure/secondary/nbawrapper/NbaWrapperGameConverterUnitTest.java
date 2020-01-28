@@ -6,8 +6,10 @@ import static org.mockito.Mockito.*;
 import com.drmilk.nbawrapper.domain.utils.boxscore.Boxscore;
 import com.drmilk.nbawrapper.domain.utils.scoreboard.GameDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.hippo.nbastats.config.StatFilterProperties;
 import fr.hippo.nbastats.domain.GameStat;
 import fr.hippo.nbastats.domain.PlayerStatUnitTest;
+import fr.hippo.nbastats.domain.StatFilterUnitTest;
 import fr.hippo.nbastats.domain.TeamName;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,6 +33,9 @@ public class NbaWrapperGameConverterUnitTest {
     @Mock
     private NbaWrapperBoxscoreConverter boxscoreConverter;
 
+    @Mock
+    private StatFilterProperties statFilterProperties;
+
     @InjectMocks
     private NbaWrapperGameConverter converter;
 
@@ -42,6 +47,7 @@ public class NbaWrapperGameConverterUnitTest {
         when(teams.findById("1610612739")).thenReturn(TeamName.CLEVELAND);
         when(boxscoreConverter.extractStatForTeam(boxscore, "1610612738")).thenReturn(List.of(PlayerStatUnitTest.brookLopez()));
         when(boxscoreConverter.extractStatForTeam(boxscore, "1610612739")).thenReturn(List.of(PlayerStatUnitTest.jeremyLamb()));
+        when(statFilterProperties.statFilter()).thenReturn(StatFilterUnitTest.empty());
 
         GameStat gameStat = converter.toDomain(gameDetails, boxscore);
 

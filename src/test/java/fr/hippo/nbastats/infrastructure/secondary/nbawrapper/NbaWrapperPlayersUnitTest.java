@@ -17,6 +17,7 @@ public class NbaWrapperPlayersUnitTest {
     public void shouldGetPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("201567");
 
+        assertThat(identity.getId()).isEqualTo(201567);
         assertThat(identity).hasToString("K. Love    ");
     }
 
@@ -24,6 +25,7 @@ public class NbaWrapperPlayersUnitTest {
     public void shouldGetUnknownPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("000000");
 
+        assertThat(identity.getId()).isEqualTo(0);
         assertThat(identity).hasToString("?. ???     ");
     }
 }

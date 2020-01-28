@@ -4,12 +4,18 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Identity {
     public static final int MAX_LENGTH = 11;
+    private final int id;
     private final String firstName;
     private final String lastName;
 
-    public Identity(String firstName, String lastName) {
+    public Identity(int id, String firstName, String lastName) {
+        this.id = id;
         this.firstName = emptyIfNull(firstName);
         this.lastName = emptyIfNull(lastName);
+    }
+
+    public int getId() {
+        return id;
     }
 
     private String emptyIfNull(String name) {

@@ -9,15 +9,22 @@ import org.junit.jupiter.api.Test;
 public class TeamStatUnitTest {
 
     @Test
+    public void shouldNotBuildWithoutFilter() {
+        assertThatThrownBy(() -> fullTeamStat().filter(null).build())
+            .isExactlyInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("filter");
+    }
+
+    @Test
     public void shouldNotBuildWithoutName() {
-        assertThatThrownBy(() -> new TeamStat(null, 42, players()))
+        assertThatThrownBy(() -> fullTeamStat().name(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("name");
     }
 
     @Test
     public void shouldNotBuildWithoutPlayers() {
-        assertThatThrownBy(() -> new TeamStat(TeamName.DETROIT, 42, null))
+        assertThatThrownBy(() -> fullTeamStat().players(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("players");
     }
@@ -51,12 +58,29 @@ public class TeamStatUnitTest {
         assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba());
     }
 
+    @Test
+    public void shouldHaveFilteredToString() {
+        assertThat(detroitFiltered()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + moBamba());
+    }
+
     public static TeamStat detroit() {
-        return new TeamStat(TeamName.DETROIT, 124, players());
+        return fullTeamStat().build();
+    }
+
+    public static TeamStat detroitFiltered() {
+        return fullTeamStat().filter(new StatFilter(50, List.of(MO_BAMBA_ID, NOT_PLAYING_ID))).build();
     }
 
     public static TeamStat indiana() {
-        return new TeamStat(TeamName.INDIANA, 123, players());
+        return fullTeamStat().name(TeamName.INDIANA).score(123).build();
+    }
+
+    public static TeamStat.TeamStatBuilder fullTeamStat() {
+        return TeamStat.builder().filter(statFilter()).name(TeamName.DETROIT).score(124).players(players());
+    }
+
+    private static StatFilter statFilter() {
+        return StatFilterUnitTest.empty();
     }
 
     private static List<PlayerStat> players() {

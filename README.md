@@ -2,7 +2,9 @@
 
 Send NBA games statistics to a [Telegram][] channel (using a [Telegram Bot]) as soon as a game is finished.
 
-The running channel is available at https://t.me/nba_games.
+Two running channels are available:
+- full version with every stats → https://t.me/nba_games
+- lite version with top stats → https://t.me/nba_top_stats
 
 ## Technical environment
 
