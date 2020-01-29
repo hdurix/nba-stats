@@ -1,0 +1,12 @@
+logging.level.org.apache.http.client.protocol.ResponseProcessCookies: ERROR
+
+games:
+    storage: target/releases.txt
+
+# Uncomment to filter stats
+#filter:
+#    high_eval: 30
+#    player_ids:
+#        - 2546
+#        - 203918
+#        - 203081

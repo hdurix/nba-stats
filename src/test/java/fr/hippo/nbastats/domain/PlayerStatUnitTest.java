@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class PlayerStatUnitTest {
+    public static final int JEREMY_LAMB_ID = 10;
+    public static final int MO_BAMBA_ID = 11;
+    public static final int NOT_PLAYING_ID = 12;
 
     @Test
     public void shouldNotBuildWithoutIdentity() {
@@ -110,21 +113,26 @@ public class PlayerStatUnitTest {
         assertThat(brookLopez()).hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
+    @Test
+    public void shouldGetId() {
+        assertThat(moBamba().id()).isEqualTo(MO_BAMBA_ID);
+    }
+
     public static PlayerStat brookLopez() {
         return fullPlayerStat().build();
     }
 
     public static PlayerStat jeremyLamb() {
-        return fullPlayerStat().identity(new Identity("Jeremy", "Lamb")).points(new UnaryStat(10)).build();
+        return fullPlayerStat().identity(new Identity(JEREMY_LAMB_ID, "Jeremy", "Lamb")).points(new UnaryStat(10)).build();
     }
 
     public static PlayerStat moBamba() {
-        return fullPlayerStat().identity(new Identity("Mo", "Bamba")).points(new UnaryStat(10)).build();
+        return fullPlayerStat().identity(new Identity(MO_BAMBA_ID, "Mo", "Bamba")).points(new UnaryStat(10)).build();
     }
 
     public static PlayerStat didNotPlayed() {
         return fullPlayerStat()
-            .identity(new Identity("Not", "Playing"))
+            .identity(new Identity(NOT_PLAYING_ID, "Not", "Playing"))
             .points(new UnaryStat(0))
             .rebounds(new UnaryStat(0))
             .minutes(new UnaryStat(0))

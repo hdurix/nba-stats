@@ -7,21 +7,26 @@ import org.junit.jupiter.api.Test;
 public class IdentityUnitTest {
 
     @Test
+    public void shouldGetId() {
+        assertThat(defaultIdentity().getId()).isEqualTo(42);
+    }
+
+    @Test
     public void shouldHaveEmptyIdentity() {
-        assertThat(new Identity(null, null)).hasToString(" .         ");
+        assertThat(new Identity(42, null, null)).hasToString(" .         ");
     }
 
     @Test
     public void shouldHaveTruncatedLongName() {
-        assertThat(new Identity("Giannis", "Antetokounmpo")).hasToString("G. Antetoko");
+        assertThat(new Identity(42, "Giannis", "Antetokounmpo")).hasToString("G. Antetoko");
     }
 
     @Test
     public void shouldHaveFullName() {
-        assertThat(new Identity("Brook", "Lopez")).hasToString("B. Lopez   ");
+        assertThat(new Identity(42, "Brook", "Lopez")).hasToString("B. Lopez   ");
     }
 
     public static Identity defaultIdentity() {
-        return new Identity("Brook", "Lopez");
+        return new Identity(42, "Brook", "Lopez");
     }
 }

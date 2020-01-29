@@ -24,7 +24,7 @@ public class NbaWrapperPlayerConverterUnitTest {
 
     @Test
     public void shouldMapPlayer() throws JsonProcessingException {
-        when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity("Kevin", "Love"));
+        when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity(42, "Kevin", "Love"));
 
         PlayerStat playerStat = converter.toDomain(getActivePlayer());
 
@@ -33,7 +33,7 @@ public class NbaWrapperPlayerConverterUnitTest {
 
     @Test
     public void shouldMapPlayerDidNotPlayed() throws JsonProcessingException {
-        when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity("Kevin", "Love"));
+        when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity(42, "Kevin", "Love"));
 
         PlayerStat playerStat = converter.toDomain(getActivePlayer(false));
 

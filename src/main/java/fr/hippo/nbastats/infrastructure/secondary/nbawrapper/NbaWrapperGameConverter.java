@@ -3,6 +3,7 @@ package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 import com.drmilk.nbawrapper.domain.utils.boxscore.Boxscore;
 import com.drmilk.nbawrapper.domain.utils.scoreboard.GameDetails;
 import com.drmilk.nbawrapper.domain.utils.scoreboard.TeamScoreDetails;
+import fr.hippo.nbastats.config.StatFilterProperties;
 import fr.hippo.nbastats.domain.GameStat;
 import fr.hippo.nbastats.domain.TeamStat;
 import org.springframework.stereotype.Component;
@@ -11,10 +12,16 @@ import org.springframework.stereotype.Component;
 class NbaWrapperGameConverter {
     private final NbaWrapperTeams teams;
     private final NbaWrapperBoxscoreConverter boxscoreConverter;
+    private final StatFilterProperties statFilterProperties;
 
-    public NbaWrapperGameConverter(NbaWrapperTeams teams, NbaWrapperBoxscoreConverter boxscoreConverter) {
+    public NbaWrapperGameConverter(
+        NbaWrapperTeams teams,
+        NbaWrapperBoxscoreConverter boxscoreConverter,
+        StatFilterProperties statFilterProperties
+    ) {
         this.teams = teams;
         this.boxscoreConverter = boxscoreConverter;
+        this.statFilterProperties = statFilterProperties;
     }
 
     public GameStat toDomain(GameDetails gameDetails, Boxscore boxscore) {
@@ -24,10 +31,12 @@ class NbaWrapperGameConverter {
     }
 
     private TeamStat toTeamStat(Boxscore boxscore, TeamScoreDetails teamScore) {
-        return new TeamStat(
-            teams.findById(teamScore.getTeamId()),
-            Integer.parseInt(teamScore.getScore()),
-            boxscoreConverter.extractStatForTeam(boxscore, teamScore.getTeamId())
-        );
+        return TeamStat
+            .builder()
+            .filter(statFilterProperties.statFilter())
+            .name(teams.findById(teamScore.getTeamId()))
+            .score(Integer.parseInt(teamScore.getScore()))
+            .players(boxscoreConverter.extractStatForTeam(boxscore, teamScore.getTeamId()))
+            .build();
     }
 }

@@ -18,8 +18,8 @@ class NbaWrapperPlayers {
         try {
             player = Player.getPlayerMinById(playerId);
         } catch (PlayerNotFoundException e) {
-            return new Identity("?", "???");
+            return new Identity(Integer.parseInt(playerId), "?", "???");
         }
-        return new Identity(player.getFirstName(), player.getLastName());
+        return new Identity(Integer.parseInt(playerId), player.getFirstName(), player.getLastName());
     }
 }
