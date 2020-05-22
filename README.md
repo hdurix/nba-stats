@@ -16,6 +16,12 @@ A library is used for getting NBA statistics: [nbawrapper-stats][]. Many thanks 
 
 [![codecov](https://codecov.io/gh/hdurix/nba-stats/branch/master/graph/badge.svg)](https://codecov.io/gh/hdurix/nba-stats)
 
+## Methodologies
+
+* TDD
+* DDD
+* Hexagonal architecture
+
 ## Environment variables
 
 Before running the app (development, tests, production), be sure to provide 2 environment variables:
