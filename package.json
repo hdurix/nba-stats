@@ -9,11 +9,21 @@
     ],
     "devDependencies": {
         "husky": "^2.4.1",
-        "lodash": "^4.17.15",
-        "prettier-plugin-java": "^0.7.0"
+        "lint-staged": "^10.2.6",
+        "prettier-plugin-java": "^0.8.0"
     },
     "engines": {
         "node": ">=8.9.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "{,src/**/}*.java": [
+            "prettier --write"
+        ]
     },
     "scripts": {
         "prettier:java": "prettier --write \"{,src/**/}*.java\" --plugin=./node_modules/prettier-plugin-java",
