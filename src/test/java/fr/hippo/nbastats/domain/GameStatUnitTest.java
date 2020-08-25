@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 public class GameStatUnitTest {
 
     @Test
-    public void shouldNotBuildWithoutAwayTeam() {
+    void shouldNotBuildWithoutAwayTeam() {
         assertThatThrownBy(() -> new GameStat(null, detroit()))
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("away");
     }
 
     @Test
-    public void shouldNotBuildWithoutHomeTeam() {
+    void shouldNotBuildWithoutHomeTeam() {
         assertThatThrownBy(() -> new GameStat(indiana(), null))
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("home");
     }
 
     @Test
-    public void shouldHaveFullToString() {
+    void shouldHaveFullToString() {
         assertThat(defaultGameStat()).hasToString("  Pacers 123 - Pistons 124   \n\n" + indiana() + "\n\n" + detroit());
     }
 

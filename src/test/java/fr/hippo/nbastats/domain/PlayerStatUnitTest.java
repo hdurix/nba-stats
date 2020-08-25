@@ -5,116 +5,116 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class PlayerStatUnitTest {
-    public static final int JEREMY_LAMB_ID = 10;
-    public static final int MO_BAMBA_ID = 11;
-    public static final int NOT_PLAYING_ID = 12;
+    static final int JEREMY_LAMB_ID = 10;
+    static final int MO_BAMBA_ID = 11;
+    static final int NOT_PLAYING_ID = 12;
 
     @Test
-    public void shouldNotBuildWithoutIdentity() {
+    void shouldNotBuildWithoutIdentity() {
         assertThatThrownBy(() -> fullPlayerStat().identity(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("identity");
     }
 
     @Test
-    public void shouldNotBuildWithoutFouls() {
+    void shouldNotBuildWithoutFouls() {
         assertThatThrownBy(() -> fullPlayerStat().fouls(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("fouls");
     }
 
     @Test
-    public void shouldNotBuildWithoutPoints() {
+    void shouldNotBuildWithoutPoints() {
         assertThatThrownBy(() -> fullPlayerStat().points(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("points");
     }
 
     @Test
-    public void shouldNotBuildWithoutRebounds() {
+    void shouldNotBuildWithoutRebounds() {
         assertThatThrownBy(() -> fullPlayerStat().rebounds(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("rebounds");
     }
 
     @Test
-    public void shouldNotBuildWithoutAssists() {
+    void shouldNotBuildWithoutAssists() {
         assertThatThrownBy(() -> fullPlayerStat().assists(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("assists");
     }
 
     @Test
-    public void shouldNotBuildWithoutBlocks() {
+    void shouldNotBuildWithoutBlocks() {
         assertThatThrownBy(() -> fullPlayerStat().blocks(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("blocks");
     }
 
     @Test
-    public void shouldNotBuildWithoutSteals() {
+    void shouldNotBuildWithoutSteals() {
         assertThatThrownBy(() -> fullPlayerStat().steals(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("steals");
     }
 
     @Test
-    public void shouldNotBuildWithoutFieldGoals() {
+    void shouldNotBuildWithoutFieldGoals() {
         assertThatThrownBy(() -> fullPlayerStat().fieldGoals(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("fieldGoals");
     }
 
     @Test
-    public void shouldNotBuildWithoutThreePoints() {
+    void shouldNotBuildWithoutThreePoints() {
         assertThatThrownBy(() -> fullPlayerStat().threePoints(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("threePoints");
     }
 
     @Test
-    public void shouldNotBuildWithoutFreeThrows() {
+    void shouldNotBuildWithoutFreeThrows() {
         assertThatThrownBy(() -> fullPlayerStat().freeThrows(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("freeThrows");
     }
 
     @Test
-    public void shouldNotBuildWithoutTurnovers() {
+    void shouldNotBuildWithoutTurnovers() {
         assertThatThrownBy(() -> fullPlayerStat().turnovers(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("turnovers");
     }
 
     @Test
-    public void shouldNotBuildWithoutMinutes() {
+    void shouldNotBuildWithoutMinutes() {
         assertThatThrownBy(() -> fullPlayerStat().minutes(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("minutes");
     }
 
     @Test
-    public void shouldGetEvaluation() {
+    void shouldGetEvaluation() {
         assertThat(brookLopez().eval()).isEqualTo(76);
     }
 
     @Test
-    public void shouldGetPlayedWithMinutes() {
+    void shouldGetPlayedWithMinutes() {
         assertThat(brookLopez().played()).isTrue();
     }
 
     @Test
-    public void shouldGetNotPlayedWithNoMinute() {
+    void shouldGetNotPlayedWithNoMinute() {
         assertThat(didNotPlayed().played()).isFalse();
     }
 
     @Test
-    public void shouldHaveFullToString() {
+    void shouldHaveFullToString() {
         assertThat(brookLopez()).hasToString("B. Lopez   *76|42  8 10  4  0\n 9/12 10/13  4/5 | 4|34'");
     }
 
     @Test
-    public void shouldGetId() {
+    void shouldGetId() {
         assertThat(moBamba().id()).isEqualTo(MO_BAMBA_ID);
     }
 
@@ -126,11 +126,11 @@ public class PlayerStatUnitTest {
         return fullPlayerStat().identity(new Identity(JEREMY_LAMB_ID, "Jeremy", "Lamb")).points(new UnaryStat(10)).build();
     }
 
-    public static PlayerStat moBamba() {
+    static PlayerStat moBamba() {
         return fullPlayerStat().identity(new Identity(MO_BAMBA_ID, "Mo", "Bamba")).points(new UnaryStat(10)).build();
     }
 
-    public static PlayerStat didNotPlayed() {
+    static PlayerStat didNotPlayed() {
         return fullPlayerStat()
             .identity(new Identity(NOT_PLAYING_ID, "Not", "Playing"))
             .points(new UnaryStat(0))
@@ -139,7 +139,7 @@ public class PlayerStatUnitTest {
             .build();
     }
 
-    public static PlayerStat.PlayerStatBuilder fullPlayerStat() {
+    static PlayerStat.PlayerStatBuilder fullPlayerStat() {
         return PlayerStat
             .builder()
             .identity(IdentityUnitTest.defaultIdentity())

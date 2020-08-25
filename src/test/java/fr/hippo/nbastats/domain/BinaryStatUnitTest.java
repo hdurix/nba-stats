@@ -4,10 +4,10 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class BinaryStatUnitTest {
+class BinaryStatUnitTest {
 
     @Test
-    public void shouldGetValues() {
+    void shouldGetValues() {
         BinaryStat binaryStat = new BinaryStat(2, 12);
 
         assertThat(binaryStat.getSuccess()).isEqualTo(2);
@@ -16,17 +16,17 @@ public class BinaryStatUnitTest {
     }
 
     @Test
-    public void shouldToStringWithTwoLowValuesHaveTwoSpaces() {
+    void shouldToStringWithTwoLowValuesHaveTwoSpaces() {
         assertThat(new BinaryStat(2, 2)).hasToString(" 2/2 ");
     }
 
     @Test
-    public void shouldToStringWithHighTotalHaveOneSpace() {
+    void shouldToStringWithHighTotalHaveOneSpace() {
         assertThat(new BinaryStat(2, 12)).hasToString(" 2/12");
     }
 
     @Test
-    public void shouldToStringWithHighSuccessHaveNoSpace() {
+    void shouldToStringWithHighSuccessHaveNoSpace() {
         assertThat(new BinaryStat(11, 12)).hasToString("11/12");
     }
 }

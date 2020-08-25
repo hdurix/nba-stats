@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 class NbaWrapperBoxscores {
 
-    public Boxscore findByGameId(LocalDate date, String gameId) {
+    Boxscore findByGameId(LocalDate date, String gameId) {
         int day = date.getDayOfMonth();
         int month = date.getMonthValue();
         int year = date.getYear();

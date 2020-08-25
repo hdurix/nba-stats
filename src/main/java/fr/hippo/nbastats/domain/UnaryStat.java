@@ -7,7 +7,7 @@ public class UnaryStat {
         this.value = value;
     }
 
-    public int value() {
+    int value() {
         return value;
     }
 

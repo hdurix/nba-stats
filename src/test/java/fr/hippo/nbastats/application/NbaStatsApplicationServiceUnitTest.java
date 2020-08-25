@@ -14,7 +14,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaStatsApplicationServiceUnitTest {
+class NbaStatsApplicationServiceUnitTest {
     @Mock
     private Games games;
 
@@ -25,14 +25,14 @@ public class NbaStatsApplicationServiceUnitTest {
     private NbaStatsApplicationService service;
 
     @Test
-    public void shouldNotNotifyIfNoGame() {
+    void shouldNotNotifyIfNoGame() {
         service.notifyNextGame();
 
         verify(notifier, never()).send(any());
     }
 
     @Test
-    public void shouldNotifyGame() {
+    void shouldNotifyGame() {
         GameStat gameStat = GameStatUnitTest.defaultGameStat();
         when(games.findUnreleased()).thenReturn(Optional.of(gameStat));
 

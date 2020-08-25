@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class RestTemplateConfigurationUnitTest {
 
     @Test
-    public void shouldGetRestTemplate() {
+    void shouldGetRestTemplate() {
         assertThat(new RestTemplateConfiguration().restTemplate()).isNotNull();
     }
 }

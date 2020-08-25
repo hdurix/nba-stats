@@ -10,7 +10,7 @@ class NbaStatsApplicationServiceIntTest {
     private NbaStatsApplicationService service;
 
     @Test
-    public void shouldMakeFullRound() {
+    void shouldMakeFullRound() {
         service.notifyNextGame();
     }
 }

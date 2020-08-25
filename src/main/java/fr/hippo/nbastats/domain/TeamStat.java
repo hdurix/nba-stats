@@ -16,7 +16,7 @@ public class TeamStat {
     private final int score;
     private final List<PlayerStat> players;
 
-    public TeamStat(TeamStatBuilder builder) {
+    TeamStat(TeamStatBuilder builder) {
         Assert.notNull(builder.filter, "missing filter");
         Assert.notNull(builder.name, "missing name");
         Assert.notNull(builder.players, "missing players");
@@ -37,15 +37,15 @@ public class TeamStat {
         return new TeamStatBuilder();
     }
 
-    public TeamName getName() {
+    TeamName getName() {
         return name;
     }
 
-    public int getScore() {
+    int getScore() {
         return score;
     }
 
-    public List<PlayerStat> getPlayers() {
+    List<PlayerStat> getPlayers() {
         return players;
     }
 

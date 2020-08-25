@@ -9,12 +9,12 @@ import org.mockito.InjectMocks;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperPlayersUnitTest {
+class NbaWrapperPlayersUnitTest {
     @InjectMocks
     private NbaWrapperPlayers players;
 
     @Test
-    public void shouldGetPlayerIdentityFromWrapper() {
+    void shouldGetPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("201567");
 
         assertThat(identity.getId()).isEqualTo(201567);
@@ -22,7 +22,7 @@ public class NbaWrapperPlayersUnitTest {
     }
 
     @Test
-    public void shouldGetUnknownPlayerIdentityFromWrapper() {
+    void shouldGetUnknownPlayerIdentityFromWrapper() {
         Identity identity = players.getIdentityFromPlayerId("000000");
 
         assertThat(identity.getId()).isEqualTo(0);

@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperPlayerConverterUnitTest {
+class NbaWrapperPlayerConverterUnitTest {
     @Mock
     private NbaWrapperPlayers players;
 
@@ -23,7 +23,7 @@ public class NbaWrapperPlayerConverterUnitTest {
     private NbaWrapperPlayerConverter converter;
 
     @Test
-    public void shouldMapPlayer() throws JsonProcessingException {
+    void shouldMapPlayer() throws JsonProcessingException {
         when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity(42, "Kevin", "Love"));
 
         PlayerStat playerStat = converter.toDomain(getActivePlayer());
@@ -32,7 +32,7 @@ public class NbaWrapperPlayerConverterUnitTest {
     }
 
     @Test
-    public void shouldMapPlayerDidNotPlayed() throws JsonProcessingException {
+    void shouldMapPlayerDidNotPlayed() throws JsonProcessingException {
         when(players.getIdentityFromPlayerId("201567")).thenReturn(new Identity(42, "Kevin", "Love"));
 
         PlayerStat playerStat = converter.toDomain(getActivePlayer(false));

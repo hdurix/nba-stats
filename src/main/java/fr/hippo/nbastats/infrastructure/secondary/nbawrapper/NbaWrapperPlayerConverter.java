@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 class NbaWrapperPlayerConverter {
     private final NbaWrapperPlayers players;
 
-    public NbaWrapperPlayerConverter(NbaWrapperPlayers players) {
+    NbaWrapperPlayerConverter(NbaWrapperPlayers players) {
         this.players = players;
     }
 
-    public PlayerStat toDomain(ActivePlayer player) {
+    PlayerStat toDomain(ActivePlayer player) {
         Identity identity = players.getIdentityFromPlayerId(player.getPersonId());
 
         return PlayerStat

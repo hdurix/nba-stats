@@ -22,11 +22,11 @@ class ReleasedGames {
 
     private final Path storagePath;
 
-    public ReleasedGames(@Value("${games.storage}") String storageUrl) {
+    ReleasedGames(@Value("${games.storage}") String storageUrl) {
         this.storagePath = Paths.get(storageUrl);
     }
 
-    public void add(String gameId) {
+    void add(String gameId) {
         String toStore = gameId + ID_SEPARATOR;
         try {
             Files.createDirectories(storagePath.getParent());
@@ -36,7 +36,7 @@ class ReleasedGames {
         }
     }
 
-    public List<String> findAll() {
+    List<String> findAll() {
         try {
             return Stream.of(new String(Files.readAllBytes(storagePath)).split("\n")).collect(Collectors.toList());
         } catch (IOException e) {

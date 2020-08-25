@@ -22,12 +22,12 @@ class TelegramGameNotifierUnitTest {
     private TelegramGameNotifier notifier;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         notifier = new TelegramGameNotifier(restTemplate, "123:abc", "456");
     }
 
     @Test
-    public void shouldSendToTelegramBot() throws URISyntaxException {
+    void shouldSendToTelegramBot() throws URISyntaxException {
         notifier.send(GameStatUnitTest.defaultGameStat());
 
         ArgumentCaptor<URI> captor = ArgumentCaptor.forClass(URI.class);

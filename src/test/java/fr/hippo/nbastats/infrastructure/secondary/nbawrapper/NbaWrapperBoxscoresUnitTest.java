@@ -9,17 +9,17 @@ import org.mockito.InjectMocks;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperBoxscoresUnitTest {
+class NbaWrapperBoxscoresUnitTest {
     @InjectMocks
     private NbaWrapperBoxscores boxscores;
 
     @Test
-    public void shouldGetBoxscore() {
+    void shouldGetBoxscore() {
         assertThat(boxscores.findByGameId(LocalDate.of(2019, 12, 27), "0021900466")).isNotNull();
     }
 
     @Test
-    public void shouldNotGetBoxscoreForUnknownId() {
+    void shouldNotGetBoxscoreForUnknownId() {
         assertThatThrownBy(() -> boxscores.findByGameId(LocalDate.of(2019, 12, 27), "unknown"))
             .isExactlyInstanceOf(IllegalStateException.class)
             .hasMessageContaining("Boxscore");

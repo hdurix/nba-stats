@@ -39,7 +39,7 @@ class NbaWrapperGames implements Games {
     }
 
     @PostConstruct
-    public void initReleases() {
+    void initReleases() {
         released = releasedGames.findAll();
     }
 

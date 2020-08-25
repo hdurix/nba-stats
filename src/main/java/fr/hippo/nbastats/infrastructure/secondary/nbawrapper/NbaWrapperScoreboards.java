@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 class NbaWrapperScoreboards {
 
-    public Scoreboard forDate(LocalDate date) {
+    Scoreboard forDate(LocalDate date) {
         int day = date.getDayOfMonth();
         int month = date.getMonthValue();
         int year = date.getYear();
