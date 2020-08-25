@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 class NbaWrapperBoxscoreConverter {
     private final NbaWrapperPlayerConverter playerConverter;
 
-    public NbaWrapperBoxscoreConverter(NbaWrapperPlayerConverter playerConverter) {
+    NbaWrapperBoxscoreConverter(NbaWrapperPlayerConverter playerConverter) {
         this.playerConverter = playerConverter;
     }
 
-    public List<PlayerStat> extractStatForTeam(Boxscore boxscore, String teamId) {
+    List<PlayerStat> extractStatForTeam(Boxscore boxscore, String teamId) {
         return boxscore
             .getStats()
             .getActivePlayers()

@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @SpringBootApplication
 @EnableConfigurationProperties(StatFilterProperties.class)
-public class NbaStatsApplication {
+class NbaStatsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(NbaStatsApplication.class, args);

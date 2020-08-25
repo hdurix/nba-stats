@@ -4,15 +4,15 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class FoulsUnitTest {
+class FoulsUnitTest {
 
     @Test
-    public void shouldHaveEmptyToStringForLowFouls() {
+    void shouldHaveEmptyToStringForLowFouls() {
         assertThat(new Fouls(2)).hasToString(" ");
     }
 
     @Test
-    public void shouldHaveMarkedToStringForMaxFouls() {
+    void shouldHaveMarkedToStringForMaxFouls() {
         assertThat(new Fouls(6)).hasToString("*");
     }
 }

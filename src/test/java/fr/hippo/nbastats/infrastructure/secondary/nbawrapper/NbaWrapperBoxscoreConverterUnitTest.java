@@ -20,7 +20,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperBoxscoreConverterUnitTest {
+class NbaWrapperBoxscoreConverterUnitTest {
     @Value("classpath:fixtures/boxscore.json")
     private Resource resource;
 
@@ -31,7 +31,7 @@ public class NbaWrapperBoxscoreConverterUnitTest {
     private NbaWrapperBoxscoreConverter converter;
 
     @Test
-    public void shouldMapGame() throws IOException {
+    void shouldMapGame() throws IOException {
         when(playerConverter.toDomain(argThat(activePlayer -> "201567".equals(activePlayer.getPersonId())))).thenReturn(brookLopez());
 
         List<PlayerStat> playerStats = converter.extractStatForTeam(getBoxscore(), "1610612739");

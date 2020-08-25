@@ -6,46 +6,46 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-public class TeamStatUnitTest {
+class TeamStatUnitTest {
 
     @Test
-    public void shouldNotBuildWithoutFilter() {
+    void shouldNotBuildWithoutFilter() {
         assertThatThrownBy(() -> fullTeamStat().filter(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("filter");
     }
 
     @Test
-    public void shouldNotBuildWithoutName() {
+    void shouldNotBuildWithoutName() {
         assertThatThrownBy(() -> fullTeamStat().name(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("name");
     }
 
     @Test
-    public void shouldNotBuildWithoutPlayers() {
+    void shouldNotBuildWithoutPlayers() {
         assertThatThrownBy(() -> fullTeamStat().players(null).build())
             .isExactlyInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("players");
     }
 
     @Test
-    public void shouldGetName() {
+    void shouldGetName() {
         assertThat(detroit().getName()).isEqualTo(TeamName.DETROIT);
     }
 
     @Test
-    public void shouldGetScore() {
+    void shouldGetScore() {
         assertThat(detroit().getScore()).isEqualTo(124);
     }
 
     @Test
-    public void shouldGetUnmodifiablePlayers() {
+    void shouldGetUnmodifiablePlayers() {
         assertThatThrownBy(() -> detroit().getPlayers().clear()).isExactlyInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
-    public void shouldGetPlayersOrderedByEvaluation() {
+    void shouldGetPlayersOrderedByEvaluation() {
         List<PlayerStat> players = detroit().getPlayers();
 
         assertThat(players)
@@ -54,28 +54,28 @@ public class TeamStatUnitTest {
     }
 
     @Test
-    public void shouldHaveFullToString() {
+    void shouldHaveFullToString() {
         assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba());
     }
 
     @Test
-    public void shouldHaveFilteredToString() {
+    void shouldHaveFilteredToString() {
         assertThat(detroitFiltered()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + moBamba());
     }
 
-    public static TeamStat detroit() {
+    static TeamStat detroit() {
         return fullTeamStat().build();
     }
 
-    public static TeamStat detroitFiltered() {
+    private TeamStat detroitFiltered() {
         return fullTeamStat().filter(new StatFilter(50, List.of(MO_BAMBA_ID, NOT_PLAYING_ID))).build();
     }
 
-    public static TeamStat indiana() {
+    static TeamStat indiana() {
         return fullTeamStat().name(TeamName.INDIANA).score(123).build();
     }
 
-    public static TeamStat.TeamStatBuilder fullTeamStat() {
+    private static TeamStat.TeamStatBuilder fullTeamStat() {
         return TeamStat.builder().filter(statFilter()).name(TeamName.DETROIT).score(124).players(players());
     }
 

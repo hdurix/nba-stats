@@ -71,7 +71,7 @@ class NbaWrapperGamesUnitTest {
     }
 
     @Test
-    public void shouldFindTwoUnreleasedGames() {
+    void shouldFindTwoUnreleasedGames() {
         release();
         release();
 

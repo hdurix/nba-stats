@@ -68,15 +68,15 @@ public class PlayerStat {
         return new PlayerStatBuilder();
     }
 
-    public int eval() {
+    int eval() {
         return evaluation.value();
     }
 
-    public boolean played() {
+    boolean played() {
         return minutes.value() > 0;
     }
 
-    public int id() {
+    int id() {
         return identity.getId();
     }
 

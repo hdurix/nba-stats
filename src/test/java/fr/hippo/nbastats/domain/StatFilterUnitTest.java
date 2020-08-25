@@ -8,56 +8,56 @@ import org.junit.jupiter.api.Test;
 public class StatFilterUnitTest {
 
     @Test
-    public void shouldMatchWithOnlyHighEval() {
+    void shouldMatchWithOnlyHighEval() {
         StatFilter statFilter = new StatFilter(30, null);
 
         assertThat(statFilter.matches(42, 42)).isTrue();
     }
 
     @Test
-    public void shouldNotMatchWithOnlyLowEval() {
+    void shouldNotMatchWithOnlyLowEval() {
         StatFilter statFilter = new StatFilter(30, null);
 
         assertThat(statFilter.matches(1, 42)).isFalse();
     }
 
     @Test
-    public void shouldMatchWithHighEval() {
+    void shouldMatchWithHighEval() {
         StatFilter statFilter = new StatFilter(30, List.of(1));
 
         assertThat(statFilter.matches(42, 42)).isTrue();
     }
 
     @Test
-    public void shouldMatchWithOnlyMatchingPlayerId() {
+    void shouldMatchWithOnlyMatchingPlayerId() {
         StatFilter statFilter = new StatFilter(null, List.of(1));
 
         assertThat(statFilter.matches(42, 1)).isTrue();
     }
 
     @Test
-    public void shouldNotMatchWithOnlyNotMatchingPlayerId() {
+    void shouldNotMatchWithOnlyNotMatchingPlayerId() {
         StatFilter statFilter = new StatFilter(null, List.of(1));
 
         assertThat(statFilter.matches(42, 42)).isFalse();
     }
 
     @Test
-    public void shouldMatchWithMatchingPlayerId() {
+    void shouldMatchWithMatchingPlayerId() {
         StatFilter statFilter = new StatFilter(30, List.of(1));
 
         assertThat(statFilter.matches(-1, 1)).isTrue();
     }
 
     @Test
-    public void shouldNotMatchWithNotMatchingFilters() {
+    void shouldNotMatchWithNotMatchingFilters() {
         StatFilter statFilter = new StatFilter(30, List.of(1));
 
         assertThat(statFilter.matches(-1, 42)).isFalse();
     }
 
     @Test
-    public void shouldMatchWithEmptyFilter() {
+    void shouldMatchWithEmptyFilter() {
         StatFilter statFilter = empty();
 
         assertThat(statFilter.matches(-1, 1)).isTrue();

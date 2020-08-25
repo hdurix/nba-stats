@@ -9,15 +9,15 @@ public class BinaryStat {
         this.total = total;
     }
 
-    public int getSuccess() {
+    int getSuccess() {
         return success;
     }
 
-    public int getTotal() {
+    int getTotal() {
         return total;
     }
 
-    public int getMissed() {
+    int getMissed() {
         return total - success;
     }
 

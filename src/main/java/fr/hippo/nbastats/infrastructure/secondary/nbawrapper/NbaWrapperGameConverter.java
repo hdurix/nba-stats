@@ -14,7 +14,7 @@ class NbaWrapperGameConverter {
     private final NbaWrapperBoxscoreConverter boxscoreConverter;
     private final StatFilterProperties statFilterProperties;
 
-    public NbaWrapperGameConverter(
+    NbaWrapperGameConverter(
         NbaWrapperTeams teams,
         NbaWrapperBoxscoreConverter boxscoreConverter,
         StatFilterProperties statFilterProperties
@@ -24,7 +24,7 @@ class NbaWrapperGameConverter {
         this.statFilterProperties = statFilterProperties;
     }
 
-    public GameStat toDomain(GameDetails gameDetails, Boxscore boxscore) {
+    GameStat toDomain(GameDetails gameDetails, Boxscore boxscore) {
         TeamStat away = toTeamStat(boxscore, gameDetails.getVisitingTeamScore());
         TeamStat home = toTeamStat(boxscore, gameDetails.getHomeTeamScore());
         return new GameStat(away, home);

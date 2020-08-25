@@ -9,12 +9,12 @@ import org.mockito.InjectMocks;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperTeamsUnitTest {
+class NbaWrapperTeamsUnitTest {
     @InjectMocks
     private NbaWrapperTeams teams;
 
     @Test
-    public void shouldGetTeamNameFromWrapperId() {
+    void shouldGetTeamNameFromWrapperId() {
         TeamName teamName = teams.findById("1610612743");
 
         assertThat(teamName).isEqualTo(TeamName.DENVER);

@@ -23,7 +23,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class NbaWrapperGameConverterUnitTest {
+class NbaWrapperGameConverterUnitTest {
     @Value("classpath:fixtures/game.json")
     private Resource resource;
 
@@ -40,7 +40,7 @@ public class NbaWrapperGameConverterUnitTest {
     private NbaWrapperGameConverter converter;
 
     @Test
-    public void shouldConvertGame() throws IOException {
+    void shouldConvertGame() throws IOException {
         GameDetails gameDetails = getGameDetails();
         Boxscore boxscore = new Boxscore();
         when(teams.findById("1610612738")).thenReturn(TeamName.BOSTON);

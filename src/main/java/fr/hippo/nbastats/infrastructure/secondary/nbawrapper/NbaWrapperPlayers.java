@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 class NbaWrapperPlayers {
 
     @Cacheable
-    public Identity getIdentityFromPlayerId(String playerId) {
+    Identity getIdentityFromPlayerId(String playerId) {
         PlayerMin player;
         try {
             player = Player.getPlayerMinById(playerId);

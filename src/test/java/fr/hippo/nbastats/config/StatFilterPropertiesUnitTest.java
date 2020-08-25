@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class StatFilterPropertiesUnitTest {
 
     @Test
-    public void shouldGetStatFilter() {
+    void shouldGetStatFilter() {
         StatFilterProperties properties = new StatFilterProperties();
         properties.setHighEval(42);
         properties.setPlayerIds(List.of(43));

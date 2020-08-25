@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class NbaWrapperTeams {
-    private static Map<String, TeamName> TEAM_IDS = Map.ofEntries(
+    private static final Map<String, TeamName> TEAM_IDS = Map.ofEntries(
         entry("1610612737", TeamName.ATLANTA),
         entry("1610612738", TeamName.BOSTON),
         entry("1610612751", TeamName.BROOKLYN),
@@ -44,7 +44,7 @@ class NbaWrapperTeams {
         return new SimpleImmutableEntry<String, TeamName>(id, teamName);
     }
 
-    public TeamName findById(String wrapperId) {
+    TeamName findById(String wrapperId) {
         return TEAM_IDS.get(wrapperId);
     }
 }

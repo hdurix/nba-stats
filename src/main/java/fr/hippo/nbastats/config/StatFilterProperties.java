@@ -9,11 +9,11 @@ public class StatFilterProperties {
     private Integer highEval;
     private List<Integer> playerIds;
 
-    public void setHighEval(Integer highEval) {
+    void setHighEval(Integer highEval) {
         this.highEval = highEval;
     }
 
-    public void setPlayerIds(List<Integer> playerIds) {
+    void setPlayerIds(List<Integer> playerIds) {
         this.playerIds = playerIds;
     }
 
