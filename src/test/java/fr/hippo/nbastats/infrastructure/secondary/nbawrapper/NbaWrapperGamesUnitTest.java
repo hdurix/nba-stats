@@ -21,6 +21,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 class NbaWrapperGamesUnitTest {
+
     @Mock
     private NbaWrapperScoreboards scoreboards;
 

@@ -21,6 +21,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 class NbaWrapperBoxscoreConverterUnitTest {
+
     @Value("classpath:fixtures/boxscore.json")
     private Resource resource;
 

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 class ReleasedGames {
+
     private static final Logger log = LoggerFactory.getLogger(ReleasedGames.class);
 
     private static final String ID_SEPARATOR = "\n";

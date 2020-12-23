@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @ExtendWith(SpringExtension.class)
 class TelegramGameNotifierUnitTest {
+
     @Mock
     private RestTemplate restTemplate;
 

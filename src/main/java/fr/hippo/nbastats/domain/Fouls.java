@@ -1,6 +1,7 @@
 package fr.hippo.nbastats.domain;
 
 public class Fouls {
+
     public static final int MAX_FOULS = 6;
     private final int value;
 

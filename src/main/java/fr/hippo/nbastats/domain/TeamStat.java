@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.util.Assert;
 
 public class TeamStat {
+
     private static final Comparator<PlayerStat> PLAYER_STAT_COMPARATOR = Comparator.comparing(PlayerStat::eval).reversed();
 
     private final StatFilter filter;
@@ -65,6 +66,7 @@ public class TeamStat {
     }
 
     public static class TeamStatBuilder {
+
         private StatFilter filter;
         private TeamName name;
         private int score;

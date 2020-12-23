@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class NbaWrapperTeams {
+
     private static final Map<String, TeamName> TEAM_IDS = Map.ofEntries(
         entry("1610612737", TeamName.ATLANTA),
         entry("1610612738", TeamName.BOSTON),

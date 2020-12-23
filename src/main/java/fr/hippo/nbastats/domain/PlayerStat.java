@@ -3,6 +3,7 @@ package fr.hippo.nbastats.domain;
 import org.springframework.util.Assert;
 
 public class PlayerStat {
+
     private final Identity identity;
     private final Fouls fouls;
     private final UnaryStat evaluation;
@@ -112,6 +113,7 @@ public class PlayerStat {
     }
 
     public static class PlayerStatBuilder {
+
         private Identity identity;
         private Fouls fouls;
         private UnaryStat points;

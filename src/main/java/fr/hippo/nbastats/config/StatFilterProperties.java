@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "filter")
 public class StatFilterProperties {
+
     private Integer highEval;
     private List<Integer> playerIds;
 

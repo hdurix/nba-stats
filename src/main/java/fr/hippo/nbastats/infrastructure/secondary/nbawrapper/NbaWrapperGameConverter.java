@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class NbaWrapperGameConverter {
+
     private final NbaWrapperTeams teams;
     private final NbaWrapperBoxscoreConverter boxscoreConverter;
     private final StatFilterProperties statFilterProperties;

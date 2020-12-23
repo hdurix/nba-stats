@@ -12,6 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
 class TelegramGameNotifier implements GameNotifier {
+
     private static final Logger log = LoggerFactory.getLogger(TelegramGameNotifier.class);
 
     private final RestTemplate restTemplate;
