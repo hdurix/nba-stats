@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class NbaStatsApplicationServiceIntTest {
+
     @Autowired
     private NbaStatsApplicationService service;
 

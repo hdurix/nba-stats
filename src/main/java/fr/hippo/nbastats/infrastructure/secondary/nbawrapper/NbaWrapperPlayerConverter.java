@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class NbaWrapperPlayerConverter {
+
     private final NbaWrapperPlayers players;
 
     NbaWrapperPlayerConverter(NbaWrapperPlayers players) {

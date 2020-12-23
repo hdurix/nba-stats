@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 class NbaStatsApplicationService {
+
     private static final int ONE_SECOND = 1000;
     private static final int ONE_MINUTE = 60 * ONE_SECOND;
 

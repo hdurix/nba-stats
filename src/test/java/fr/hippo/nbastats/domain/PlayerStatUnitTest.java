@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class PlayerStatUnitTest {
+
     static final int JEREMY_LAMB_ID = 10;
     static final int MO_BAMBA_ID = 11;
     static final int NOT_PLAYING_ID = 12;

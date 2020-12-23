@@ -3,6 +3,7 @@ package fr.hippo.nbastats.domain;
 import org.apache.commons.lang3.StringUtils;
 
 public class Identity {
+
     public static final int MAX_LENGTH = 11;
     private final int id;
     private final String firstName;

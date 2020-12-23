@@ -3,6 +3,7 @@ package fr.hippo.nbastats.domain;
 import java.util.List;
 
 public class StatFilter {
+
     private final Integer highEval;
     private final List<Integer> playerIds;
 

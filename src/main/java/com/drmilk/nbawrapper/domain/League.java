@@ -17,6 +17,7 @@ import org.springframework.context.support.AbstractApplicationContext;
  *
  */
 public class League {
+
     private static AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
     private static String sourceBaseUrl = (String) context.getBean("sourceBaseUrl");

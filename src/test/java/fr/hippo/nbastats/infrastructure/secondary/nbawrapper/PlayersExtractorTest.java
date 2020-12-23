@@ -1,5 +1,6 @@
 package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
+import com.drmilk.nbawrapper.domain.utils.player.Draft;
 import com.drmilk.nbawrapper.domain.utils.player.LeaguePlayer;
 import com.drmilk.nbawrapper.domain.utils.player.LeaguePlayersResponse;
 import com.drmilk.nbawrapper.utils.QueryManager;
@@ -17,7 +18,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Disabled("no need to be automated")
 class PlayersExtractorTest {
-    private static final int CURRENT_SEASON = 2019;
+
+    private static final int CURRENT_SEASON = 2020;
     private static final String SOURCE_BASE_URL = "http://data.nba.net/data/10s/prod/v1";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -27,6 +29,7 @@ class PlayersExtractorTest {
 
     @Test
     void extractAllPlayersAsCsv() throws IOException {
+        System.out.println("Team;First Name;Last Name;French;Drafted;Id");
         HttpResponse response = QueryManager.getHttpResponse(SOURCE_BASE_URL + "/" + CURRENT_SEASON + "/players.json");
         LeaguePlayersResponse leaguePlayers = objectMapper.readValue(response.getEntity().getContent(), LeaguePlayersResponse.class);
 
@@ -39,6 +42,27 @@ class PlayersExtractorTest {
     }
 
     private Function<LeaguePlayer, String> toCsv() {
-        return p -> getTeam(p).nickname() + ";" + p.getFirstName() + ";" + p.getLastName() + ";" + p.getPersonId();
+        return p ->
+            String.join(
+                ";",
+                getTeam(p).nickname(),
+                p.getFirstName(),
+                p.getLastName(),
+                frenchPlayer(p),
+                currentDraft(p.getDraft()),
+                p.getPersonId()
+            );
+    }
+
+    private String frenchPlayer(LeaguePlayer p) {
+        return "FRANCE".equalsIgnoreCase(p.getCountry()) ? "1" : "";
+    }
+
+    private String currentDraft(Draft draft) {
+        if (String.valueOf(CURRENT_SEASON).equalsIgnoreCase(draft.getSeasonYear())) {
+            return draft.getPickNum();
+        }
+
+        return "";
     }
 }

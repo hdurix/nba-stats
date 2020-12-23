@@ -1,6 +1,7 @@
 package fr.hippo.nbastats.domain;
 
 public class BinaryStat {
+
     private final int success;
     private final int total;
 

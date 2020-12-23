@@ -1,6 +1,7 @@
 package fr.hippo.nbastats.domain;
 
 public class UnaryStat {
+
     private final int value;
 
     public UnaryStat(int value) {

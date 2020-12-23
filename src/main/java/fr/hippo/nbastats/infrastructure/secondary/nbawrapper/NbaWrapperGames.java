@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 class NbaWrapperGames implements Games {
+
     public static final int STATUS_FINISHED = 3;
     private List<String> released = new ArrayList<>();
 

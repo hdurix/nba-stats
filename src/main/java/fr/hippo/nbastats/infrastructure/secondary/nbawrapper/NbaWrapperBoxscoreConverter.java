@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 class NbaWrapperBoxscoreConverter {
+
     private final NbaWrapperPlayerConverter playerConverter;
 
     NbaWrapperBoxscoreConverter(NbaWrapperPlayerConverter playerConverter) {

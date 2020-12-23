@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;
 
 public class GameStat {
+
     private final TeamStat away;
     private final TeamStat home;
 
