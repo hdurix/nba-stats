@@ -26,9 +26,9 @@
         ]
     },
     "scripts": {
-        "prettier:java": "prettier --write \"{,src/**/}*.java\" --plugin=./node_modules/prettier-plugin-java",
-        "prettier:java:watch": "onchange '**/*.java' -- prettier --write {{changed}} --plugin=./node_modules/prettier-plugin-java",
-        "prettier:java:check": "prettier --check \"{,src/**/}*.java\" --plugin=./node_modules/prettier-plugin-java"
+        "prettier:java": "prettier --write \"{,src/**/}*.java\"",
+        "prettier:java:watch": "onchange '**/*.java' -- prettier --write {{changed}}",
+        "prettier:java:check": "prettier --check \"{,src/**/}*.java\""
     },
     "dependencies": {}
 }

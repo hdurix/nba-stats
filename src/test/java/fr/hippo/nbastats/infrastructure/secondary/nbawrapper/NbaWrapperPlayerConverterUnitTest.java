@@ -18,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 class NbaWrapperPlayerConverterUnitTest {
 
     @Mock
-    private NbaWrapperPlayers players;
+    private CacheableNbaWrapperPlayers players;
 
     @InjectMocks
     private NbaWrapperPlayerConverter converter;

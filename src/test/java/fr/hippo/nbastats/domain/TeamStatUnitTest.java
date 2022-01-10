@@ -50,25 +50,48 @@ class TeamStatUnitTest {
 
         assertThat(players)
             .extracting(PlayerStat::toString)
-            .containsExactly(brookLopez().toString(), jeremyLamb().toString(), moBamba().toString(), didNotPlayed().toString());
+            .containsExactly(
+                brookLopez().toString(),
+                jeremyLamb().toString(),
+                moBamba().toString(),
+                codyZeller().toString(),
+                didNotPlayed().toString()
+            );
     }
 
     @Test
     void shouldHaveFullToString() {
-        assertThat(detroit()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba());
+        assertThat(detroit())
+            .hasToString(
+                "------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba() + "\n\n" + codyZeller()
+            );
     }
 
     @Test
     void shouldHaveFilteredToString() {
-        assertThat(detroitFiltered()).hasToString("------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + moBamba());
+        assertThat(detroitLowEvalFiltered())
+            .hasToString(
+                "------ Detroit Pistons ------\n" + brookLopez() + "\n\n" + jeremyLamb() + "\n\n" + moBamba() + "\n\n" + codyZeller()
+            );
+    }
+
+    @Test
+    void shouldHaveAtLeast3PlayersToString() {
+        PlayerStat notWantedPlayer = brookLopez();
+        assertThat(detroitHighEvalFiltered())
+            .hasToString("------ Detroit Pistons ------\n" + notWantedPlayer + "\n\n" + moBamba() + "\n\n" + codyZeller());
     }
 
     static TeamStat detroit() {
         return fullTeamStat().build();
     }
 
-    private TeamStat detroitFiltered() {
-        return fullTeamStat().filter(new StatFilter(50, List.of(MO_BAMBA_ID, NOT_PLAYING_ID))).build();
+    private TeamStat detroitLowEvalFiltered() {
+        return fullTeamStat().filter(new StatFilter(20, List.of(MO_BAMBA_ID, CODY_ZELLER_ID, NOT_PLAYING_ID))).build();
+    }
+
+    private TeamStat detroitHighEvalFiltered() {
+        return fullTeamStat().filter(new StatFilter(100, List.of(MO_BAMBA_ID, CODY_ZELLER_ID, NOT_PLAYING_ID))).build();
     }
 
     static TeamStat indiana() {
@@ -76,14 +99,14 @@ class TeamStatUnitTest {
     }
 
     private static TeamStat.TeamStatBuilder fullTeamStat() {
-        return TeamStat.builder().filter(statFilter()).name(TeamName.DETROIT).score(124).players(players());
+        return TeamStat.builder().filter(emptyFilter()).name(TeamName.DETROIT).score(124).players(players());
     }
 
-    private static StatFilter statFilter() {
+    private static StatFilter emptyFilter() {
         return StatFilterUnitTest.empty();
     }
 
     private static List<PlayerStat> players() {
-        return List.of(jeremyLamb(), didNotPlayed(), brookLopez(), moBamba());
+        return List.of(jeremyLamb(), didNotPlayed(), brookLopez(), moBamba(), codyZeller());
     }
 }

@@ -6,6 +6,7 @@ import com.drmilk.nbawrapper.domain.utils.scoreboard.TeamScoreDetails;
 import fr.hippo.nbastats.config.StatFilterProperties;
 import fr.hippo.nbastats.domain.GameStat;
 import fr.hippo.nbastats.domain.TeamStat;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -36,8 +37,16 @@ class NbaWrapperGameConverter {
             .builder()
             .filter(statFilterProperties.statFilter())
             .name(teams.findById(teamScore.getTeamId()))
-            .score(Integer.parseInt(teamScore.getScore()))
+            .score(extractScore(teamScore.getScore()))
             .players(boxscoreConverter.extractStatForTeam(boxscore, teamScore.getTeamId()))
             .build();
+    }
+
+    private int extractScore(String score) {
+        if (StringUtils.isBlank(score)) {
+            return 0;
+        }
+
+        return Integer.parseInt(score);
     }
 }

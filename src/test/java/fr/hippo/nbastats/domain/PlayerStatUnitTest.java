@@ -8,7 +8,8 @@ public class PlayerStatUnitTest {
 
     static final int JEREMY_LAMB_ID = 10;
     static final int MO_BAMBA_ID = 11;
-    static final int NOT_PLAYING_ID = 12;
+    static final int CODY_ZELLER_ID = 12;
+    static final int NOT_PLAYING_ID = 13;
 
     @Test
     void shouldNotBuildWithoutIdentity() {
@@ -124,19 +125,23 @@ public class PlayerStatUnitTest {
     }
 
     public static PlayerStat jeremyLamb() {
-        return fullPlayerStat().identity(new Identity(JEREMY_LAMB_ID, "Jeremy", "Lamb")).points(new UnaryStat(10)).build();
+        return fullPlayerStat().identity(new Identity(JEREMY_LAMB_ID, "Jeremy", "Lamb")).points(new Stat(20)).build();
     }
 
     static PlayerStat moBamba() {
-        return fullPlayerStat().identity(new Identity(MO_BAMBA_ID, "Mo", "Bamba")).points(new UnaryStat(10)).build();
+        return fullPlayerStat().identity(new Identity(MO_BAMBA_ID, "Mo", "Bamba")).points(new Stat(10)).build();
+    }
+
+    static PlayerStat codyZeller() {
+        return fullPlayerStat().identity(new Identity(CODY_ZELLER_ID, "Cody", "Zeller")).points(new Stat(0)).build();
     }
 
     static PlayerStat didNotPlayed() {
         return fullPlayerStat()
             .identity(new Identity(NOT_PLAYING_ID, "Not", "Playing"))
-            .points(new UnaryStat(0))
-            .rebounds(new UnaryStat(0))
-            .minutes(new UnaryStat(0))
+            .points(new Stat(0))
+            .rebounds(new Stat(0))
+            .minutes(new Stat(0))
             .build();
     }
 
@@ -145,15 +150,15 @@ public class PlayerStatUnitTest {
             .builder()
             .identity(IdentityUnitTest.defaultIdentity())
             .fouls(new Fouls(6))
-            .points(new UnaryStat(42))
-            .rebounds(new UnaryStat(8))
-            .assists(new UnaryStat(10))
-            .blocks(new UnaryStat(4))
-            .steals(new UnaryStat(0))
-            .fieldGoals(new BinaryStat(9, 12))
-            .threePoints(new BinaryStat(10, 13))
-            .freeThrows(new BinaryStat(4, 5))
-            .turnovers(new UnaryStat(4))
-            .minutes(new UnaryStat(34));
+            .points(new Stat(42))
+            .rebounds(new Stat(8))
+            .assists(new Stat(10))
+            .blocks(new Stat(4))
+            .steals(new Stat(0))
+            .fieldGoals(new StatTuple(9, 12))
+            .threePoints(new StatTuple(10, 13))
+            .freeThrows(new StatTuple(4, 5))
+            .turnovers(new Stat(4))
+            .minutes(new Stat(34));
     }
 }

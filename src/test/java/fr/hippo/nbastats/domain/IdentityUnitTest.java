@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class IdentityUnitTest {
+public class IdentityUnitTest {
 
     @Test
     void shouldGetId() {
@@ -13,7 +13,7 @@ class IdentityUnitTest {
 
     @Test
     void shouldHaveEmptyIdentity() {
-        assertThat(new Identity(42, null, null)).hasToString(" .         ");
+        assertThat(new Identity(42)).hasToString("?. ???     ");
     }
 
     @Test
@@ -26,7 +26,16 @@ class IdentityUnitTest {
         assertThat(new Identity(42, "Brook", "Lopez")).hasToString("B. Lopez   ");
     }
 
-    static Identity defaultIdentity() {
+    @Test
+    void shouldBeUnknown() {
+        assertThat(unknownIdentity().isUnknown()).isTrue();
+    }
+
+    public static Identity unknownIdentity() {
+        return new Identity(42);
+    }
+
+    public static Identity defaultIdentity() {
         return new Identity(42, "Brook", "Lopez");
     }
 }

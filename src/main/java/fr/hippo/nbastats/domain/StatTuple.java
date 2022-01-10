@@ -1,11 +1,13 @@
 package fr.hippo.nbastats.domain;
 
-public class BinaryStat {
+import org.apache.commons.lang3.StringUtils;
+
+public class StatTuple {
 
     private final int success;
     private final int total;
 
-    public BinaryStat(int success, int total) {
+    public StatTuple(int success, int total) {
         this.success = success;
         this.total = total;
     }
@@ -24,18 +26,9 @@ public class BinaryStat {
 
     @Override
     public String toString() {
-        String result = "";
+        String formattedSuccess = StringUtils.leftPad(String.valueOf(success), 2);
+        String formattedTotal = StringUtils.rightPad(String.valueOf(total), 2);
 
-        if (success < 10) {
-            result += " ";
-        }
-
-        result += success + "/" + total;
-
-        if (total < 10) {
-            result += " ";
-        }
-
-        return result;
+        return formattedSuccess + "/" + formattedTotal;
     }
 }

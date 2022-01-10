@@ -1,5 +1,7 @@
 package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
 
+import static fr.hippo.nbastats.domain.PlayerStatUnitTest.brookLopez;
+import static fr.hippo.nbastats.domain.PlayerStatUnitTest.jeremyLamb;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -8,12 +10,12 @@ import com.drmilk.nbawrapper.domain.utils.scoreboard.GameDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.hippo.nbastats.config.StatFilterProperties;
 import fr.hippo.nbastats.domain.GameStat;
-import fr.hippo.nbastats.domain.PlayerStatUnitTest;
 import fr.hippo.nbastats.domain.StatFilterUnitTest;
 import fr.hippo.nbastats.domain.TeamName;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -40,16 +42,22 @@ class NbaWrapperGameConverterUnitTest {
     @InjectMocks
     private NbaWrapperGameConverter converter;
 
-    @Test
-    void shouldConvertGame() throws IOException {
-        GameDetails gameDetails = getGameDetails();
-        Boxscore boxscore = new Boxscore();
+    private GameDetails gameDetails;
+    private Boxscore boxscore;
+
+    @BeforeEach
+    void initMocks() throws IOException {
+        gameDetails = getGameDetails();
+        boxscore = new Boxscore();
         when(teams.findById("1610612738")).thenReturn(TeamName.BOSTON);
         when(teams.findById("1610612739")).thenReturn(TeamName.CLEVELAND);
-        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612738")).thenReturn(List.of(PlayerStatUnitTest.brookLopez()));
-        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612739")).thenReturn(List.of(PlayerStatUnitTest.jeremyLamb()));
+        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612738")).thenReturn(List.of(brookLopez(), brookLopez(), brookLopez()));
+        when(boxscoreConverter.extractStatForTeam(boxscore, "1610612739")).thenReturn(List.of(jeremyLamb(), jeremyLamb(), jeremyLamb()));
         when(statFilterProperties.statFilter()).thenReturn(StatFilterUnitTest.empty());
+    }
 
+    @Test
+    void shouldConvertGame() {
         GameStat gameStat = converter.toDomain(gameDetails, boxscore);
 
         assertThat(gameStat)
@@ -57,13 +65,34 @@ class NbaWrapperGameConverterUnitTest {
                 " Cavaliers 117 - Celtics 129 \n" +
                 "\n" +
                 "---- Cleveland Cavaliers ----\n" +
-                "J. Lamb    *44|10  8 10  4  0\n" +
+                "J. Lamb    *54|20  8 10  4  0\n" +
+                " 9/12 10/13  4/5 | 4|34'\n" +
+                "\n" +
+                "J. Lamb    *54|20  8 10  4  0\n" +
+                " 9/12 10/13  4/5 | 4|34'\n" +
+                "\n" +
+                "J. Lamb    *54|20  8 10  4  0\n" +
                 " 9/12 10/13  4/5 | 4|34'\n" +
                 "\n" +
                 "------ Boston Celtics -------\n" +
                 "B. Lopez   *76|42  8 10  4  0\n" +
+                " 9/12 10/13  4/5 | 4|34'\n" +
+                "\n" +
+                "B. Lopez   *76|42  8 10  4  0\n" +
+                " 9/12 10/13  4/5 | 4|34'\n" +
+                "\n" +
+                "B. Lopez   *76|42  8 10  4  0\n" +
                 " 9/12 10/13  4/5 | 4|34'"
             );
+    }
+
+    @Test
+    void shouldConvertEmptyScore() {
+        gameDetails.getHomeTeamScore().setScore("");
+
+        GameStat gameStat = converter.toDomain(gameDetails, boxscore);
+
+        assertThat(gameStat.toString()).contains("Celtics 0");
     }
 
     private GameDetails getGameDetails() throws IOException {
