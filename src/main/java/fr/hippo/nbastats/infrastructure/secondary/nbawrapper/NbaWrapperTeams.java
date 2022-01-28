@@ -42,7 +42,7 @@ class NbaWrapperTeams {
     );
 
     private static SimpleImmutableEntry<String, TeamName> entry(String id, TeamName teamName) {
-        return new SimpleImmutableEntry<String, TeamName>(id, teamName);
+        return new SimpleImmutableEntry<>(id, teamName);
     }
 
     TeamName findById(String wrapperId) {

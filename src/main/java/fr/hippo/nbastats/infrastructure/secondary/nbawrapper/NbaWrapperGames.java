@@ -7,6 +7,7 @@ import fr.hippo.nbastats.domain.Games;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -53,7 +54,7 @@ class NbaWrapperGames implements Games {
         return Stream
             .of(scoreboards.forDate(LocalDate.now().minusDays(1)), scoreboards.forDate(LocalDate.now()))
             .map(Scoreboard::getGames)
-            .flatMap(scoreboard -> scoreboard.stream())
+            .flatMap(Collection::stream)
             .collect(Collectors.toList());
     }
 

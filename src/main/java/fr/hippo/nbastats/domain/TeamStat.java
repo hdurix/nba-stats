@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.springframework.util.Assert;
 
 public class TeamStat {
@@ -30,7 +31,7 @@ public class TeamStat {
 
     private List<PlayerStat> buildPlayers(List<PlayerStat> players) {
         List<PlayerStat> playerStats = new ArrayList<>(players);
-        Collections.sort(playerStats, PLAYER_STAT_COMPARATOR);
+        playerStats.sort(PLAYER_STAT_COMPARATOR);
         return Collections.unmodifiableList(playerStats);
     }
 
@@ -52,13 +53,22 @@ public class TeamStat {
 
     @Override
     public String toString() {
-        String playerStats = players
-            .stream()
-            .filter(PlayerStat::played)
-            .filter(matchFilter())
-            .map(PlayerStat::toString)
-            .collect(Collectors.joining("\n\n"));
+        String playerStats = wantedPlayers().stream().map(PlayerStat::toString).collect(Collectors.joining("\n\n"));
         return name + "\n" + playerStats;
+    }
+
+    private List<PlayerStat> wantedPlayers() {
+        List<PlayerStat> wantedPlayers = players.stream().filter(PlayerStat::played).filter(matchFilter()).collect(Collectors.toList());
+
+        if (wantedPlayers.size() >= 3) {
+            return wantedPlayers;
+        }
+
+        List<PlayerStat> notWantedPlayers = players.stream().filter(p -> !wantedPlayers.contains(p)).collect(Collectors.toList());
+
+        List<PlayerStat> playersToAdd = notWantedPlayers.subList(0, 3 - wantedPlayers.size());
+
+        return Stream.concat(wantedPlayers.stream(), playersToAdd.stream()).sorted(PLAYER_STAT_COMPARATOR).collect(Collectors.toList());
     }
 
     private Predicate<PlayerStat> matchFilter() {

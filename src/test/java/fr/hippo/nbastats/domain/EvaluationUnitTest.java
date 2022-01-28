@@ -1,28 +1,28 @@
 package fr.hippo.nbastats.domain;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-class UnaryStatUnitTest {
+class EvaluationUnitTest {
 
     @Test
     void shouldGetValue() {
-        assertThat(new UnaryStat(42).value()).isEqualTo(42);
+        assertThat(new Evaluation(42).value()).isEqualTo(42);
     }
 
     @Test
     void shouldHaveTwoDigitToStringWithoutSpace() {
-        assertThat(new UnaryStat(42)).hasToString("42");
+        assertThat(new Evaluation(42)).hasToString("42");
     }
 
     @Test
     void shouldHaveNegativeTwoDigitToStringWithoutSpace() {
-        assertThat(new UnaryStat(-1)).hasToString("-1");
+        assertThat(new Evaluation(-1)).hasToString("-1");
     }
 
     @Test
     void shouldHaveOneDigitToStringWithSpaceWithSpace() {
-        assertThat(new UnaryStat(8)).hasToString(" 8");
+        assertThat(new Evaluation(8)).hasToString(" 8");
     }
 }

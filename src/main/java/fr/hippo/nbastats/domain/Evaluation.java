@@ -1,10 +1,12 @@
 package fr.hippo.nbastats.domain;
 
-public class UnaryStat {
+import org.apache.commons.lang3.StringUtils;
+
+public class Evaluation {
 
     private final int value;
 
-    public UnaryStat(int value) {
+    public Evaluation(int value) {
         this.value = value;
     }
 
@@ -15,7 +17,7 @@ public class UnaryStat {
     @Override
     public String toString() {
         if (value >= 0 && value < 10) {
-            return " " + value;
+            return StringUtils.leftPad(String.valueOf(value), 2);
         }
 
         return String.valueOf(value);

@@ -6,17 +6,17 @@ public class PlayerStat {
 
     private final Identity identity;
     private final Fouls fouls;
-    private final UnaryStat evaluation;
-    private final UnaryStat points;
-    private final UnaryStat rebounds;
-    private final UnaryStat assists;
-    private final UnaryStat blocks;
-    private final UnaryStat steals;
-    private final BinaryStat fieldGoals;
-    private final BinaryStat threePoints;
-    private final BinaryStat freeThrows;
-    private final UnaryStat turnovers;
-    private final UnaryStat minutes;
+    private final Evaluation evaluation;
+    private final Stat points;
+    private final Stat rebounds;
+    private final Stat assists;
+    private final Stat blocks;
+    private final Stat steals;
+    private final StatTuple fieldGoals;
+    private final StatTuple threePoints;
+    private final StatTuple freeThrows;
+    private final Stat turnovers;
+    private final Stat minutes;
 
     private PlayerStat(PlayerStatBuilder builder) {
         Assert.notNull(builder.identity, "missing identity");
@@ -48,8 +48,12 @@ public class PlayerStat {
         this.evaluation = ttflEvaluation();
     }
 
-    private UnaryStat ttflEvaluation() {
-        int score =
+    private Evaluation ttflEvaluation() {
+        return new Evaluation(goodMovesScore() - badMovesScore());
+    }
+
+    private int goodMovesScore() {
+        return (
             points.value() +
             rebounds.value() +
             assists.value() +
@@ -57,12 +61,12 @@ public class PlayerStat {
             steals.value() +
             fieldGoals.getSuccess() +
             threePoints.getSuccess() +
-            freeThrows.getSuccess() -
-            turnovers.value() -
-            fieldGoals.getMissed() -
-            threePoints.getMissed() -
-            freeThrows.getMissed();
-        return new UnaryStat(score);
+            freeThrows.getSuccess()
+        );
+    }
+
+    private int badMovesScore() {
+        return turnovers.value() + fieldGoals.getMissed() + threePoints.getMissed() + freeThrows.getMissed();
     }
 
     public static PlayerStatBuilder builder() {
@@ -83,49 +87,56 @@ public class PlayerStat {
 
     @Override
     public String toString() {
-        return (
-            "" +
-            identity +
-            fouls +
-            evaluation +
-            "|" +
-            points +
-            " " +
-            rebounds +
-            " " +
-            assists +
-            " " +
-            blocks +
-            " " +
-            steals +
-            "\n" +
-            fieldGoals +
-            " " +
-            threePoints +
-            " " +
-            freeThrows +
-            "|" +
-            turnovers +
-            "|" +
-            minutes +
-            "'"
-        );
+        return line1() + "\n" + line2();
+    }
+
+    private String line1() {
+        return new StringBuilder()
+            .append(identity)
+            .append(fouls)
+            .append(evaluation)
+            .append("|")
+            .append(points)
+            .append(" ")
+            .append(rebounds)
+            .append(" ")
+            .append(assists)
+            .append(" ")
+            .append(blocks)
+            .append(" ")
+            .append(steals)
+            .toString();
+    }
+
+    private String line2() {
+        return new StringBuilder()
+            .append(fieldGoals)
+            .append(" ")
+            .append(threePoints)
+            .append(" ")
+            .append(freeThrows)
+            .append("|")
+            .append(turnovers)
+            .append("|")
+            .append(minutes)
+            .append("'")
+            .toString();
     }
 
     public static class PlayerStatBuilder {
 
         private Identity identity;
         private Fouls fouls;
-        private UnaryStat points;
-        private UnaryStat rebounds;
-        private UnaryStat assists;
-        private UnaryStat blocks;
-        private UnaryStat steals;
-        private BinaryStat fieldGoals;
-        private BinaryStat threePoints;
-        private BinaryStat freeThrows;
-        private UnaryStat turnovers;
-        private UnaryStat minutes;
+        private Stat points;
+        private Stat rebounds;
+        private Stat assists;
+        private Stat blocks;
+        private Stat steals;
+        private StatTuple fieldGoals;
+        private StatTuple threePoints;
+        private StatTuple freeThrows;
+        private Stat turnovers;
+        private Stat minutes;
 
         public PlayerStatBuilder identity(Identity identity) {
             this.identity = identity;
@@ -139,61 +150,61 @@ public class PlayerStat {
             return this;
         }
 
-        public PlayerStatBuilder points(UnaryStat points) {
+        public PlayerStatBuilder points(Stat points) {
             this.points = points;
 
             return this;
         }
 
-        public PlayerStatBuilder rebounds(UnaryStat rebounds) {
+        public PlayerStatBuilder rebounds(Stat rebounds) {
             this.rebounds = rebounds;
 
             return this;
         }
 
-        public PlayerStatBuilder assists(UnaryStat assists) {
+        public PlayerStatBuilder assists(Stat assists) {
             this.assists = assists;
 
             return this;
         }
 
-        public PlayerStatBuilder blocks(UnaryStat blocks) {
+        public PlayerStatBuilder blocks(Stat blocks) {
             this.blocks = blocks;
 
             return this;
         }
 
-        public PlayerStatBuilder steals(UnaryStat steals) {
+        public PlayerStatBuilder steals(Stat steals) {
             this.steals = steals;
 
             return this;
         }
 
-        public PlayerStatBuilder fieldGoals(BinaryStat fieldGoals) {
+        public PlayerStatBuilder fieldGoals(StatTuple fieldGoals) {
             this.fieldGoals = fieldGoals;
 
             return this;
         }
 
-        public PlayerStatBuilder threePoints(BinaryStat threePoints) {
+        public PlayerStatBuilder threePoints(StatTuple threePoints) {
             this.threePoints = threePoints;
 
             return this;
         }
 
-        public PlayerStatBuilder freeThrows(BinaryStat freeThrows) {
+        public PlayerStatBuilder freeThrows(StatTuple freeThrows) {
             this.freeThrows = freeThrows;
 
             return this;
         }
 
-        public PlayerStatBuilder turnovers(UnaryStat turnover) {
+        public PlayerStatBuilder turnovers(Stat turnover) {
             this.turnovers = turnover;
 
             return this;
         }
 
-        public PlayerStatBuilder minutes(UnaryStat minutes) {
+        public PlayerStatBuilder minutes(Stat minutes) {
             this.minutes = minutes;
 
             return this;
