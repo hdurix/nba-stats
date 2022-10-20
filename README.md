@@ -12,8 +12,6 @@ Two running channels are available:
 * Spring Boot
 * Maven
 
-A library is used for getting NBA statistics: [nbawrapper-stats][]. Many thanks to [@antoineguay1][] for his great work!
-
 [![codecov](https://codecov.io/gh/hdurix/nba-stats/branch/master/graph/badge.svg)](https://codecov.io/gh/hdurix/nba-stats)
 
 ## Methodologies
@@ -30,9 +28,7 @@ Before running the app (development, tests, production), be sure to provide 2 en
 
 For instance with:
 
-> TELEGRAM_BOT_ID=123:abc TELEGRAM_CHAT_ID=123 ./mvnw test
+> TELEGRAM_BOT_ID=123:abc TELEGRAM_CHAT_ID=123 ./mvnw clean package
 
 [Telegram]: https://telegram.org/
 [Telegram Bot]: https://core.telegram.org/bots
-[nbawrapper-stats]: https://github.com/antoineguay1/nbawrapper-stats
-[@antoineguay1]: https://github.com/antoineguay1

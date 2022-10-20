@@ -1,4 +1,4 @@
-package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
+package fr.hippo.nbastats.infrastructure.secondary.api;
 
 import com.drmilk.nbawrapper.domain.utils.player.Draft;
 import com.drmilk.nbawrapper.domain.utils.player.LeaguePlayer;
@@ -12,10 +12,7 @@ import java.util.function.Function;
 import org.apache.http.HttpResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 @Disabled("no need to be automated")
 class PlayersExtractorTest {
 
@@ -23,9 +20,6 @@ class PlayersExtractorTest {
     private static final String SOURCE_BASE_URL = "http://data.nba.net/data/10s/prod/v1";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
-    @Autowired
-    private NbaWrapperTeams nbaWrapperTeams;
 
     @Test
     void extractAllPlayersAsCsv() throws IOException {
@@ -38,7 +32,7 @@ class PlayersExtractorTest {
     }
 
     private TeamName getTeam(LeaguePlayer p) {
-        return nbaWrapperTeams.findById(p.getTeamId());
+        return NbaTeamIds.findById(p.getTeamId());
     }
 
     private Function<LeaguePlayer, String> toCsv() {

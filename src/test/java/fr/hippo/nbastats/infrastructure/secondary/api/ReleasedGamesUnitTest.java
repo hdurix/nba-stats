@@ -1,4 +1,4 @@
-package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
+package fr.hippo.nbastats.infrastructure.secondary.api;
 
 import static org.assertj.core.api.Assertions.*;
 
