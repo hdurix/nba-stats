@@ -20,8 +20,12 @@ class ApiScoreboardWrapperUnitTest {
         assertThat(game.getGameStatus()).isEqualTo(3);
         assertThat(game.getHomeTeam().getTeamId()).isEqualTo("1610612765");
         assertThat(game.getHomeTeam().getScore()).isEqualTo(113);
+        assertThat(game.getHomeTeam().getWins()).isEqualTo(1);
+        assertThat(game.getHomeTeam().getLosses()).isEqualTo(0);
         assertThat(game.getAwayTeam().getTeamId()).isEqualTo("1610612753");
         assertThat(game.getAwayTeam().getScore()).isEqualTo(109);
+        assertThat(game.getAwayTeam().getWins()).isEqualTo(0);
+        assertThat(game.getAwayTeam().getLosses()).isEqualTo(1);
     }
 
     private String defaultJson() {

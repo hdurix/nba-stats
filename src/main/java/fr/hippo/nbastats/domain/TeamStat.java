@@ -16,6 +16,8 @@ public class TeamStat {
     private final StatFilter filter;
     private final TeamName name;
     private final int score;
+    private final int wins;
+    private final int losses;
     private final List<PlayerStat> players;
 
     TeamStat(TeamStatBuilder builder) {
@@ -26,6 +28,8 @@ public class TeamStat {
         this.filter = builder.filter;
         this.name = builder.name;
         this.score = builder.score;
+        this.wins = builder.wins;
+        this.losses = builder.losses;
         this.players = buildPlayers(builder.players);
     }
 
@@ -45,6 +49,14 @@ public class TeamStat {
 
     int getScore() {
         return score;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public int getLosses() {
+        return losses;
     }
 
     List<PlayerStat> getPlayers() {
@@ -80,6 +92,8 @@ public class TeamStat {
         private StatFilter filter;
         private TeamName name;
         private int score;
+        private int wins;
+        private int losses;
         private List<PlayerStat> players;
 
         public TeamStatBuilder filter(StatFilter filter) {
@@ -96,6 +110,18 @@ public class TeamStat {
 
         public TeamStatBuilder score(int score) {
             this.score = score;
+
+            return this;
+        }
+
+        public TeamStatBuilder wins(int wins) {
+            this.wins = wins;
+
+            return this;
+        }
+
+        public TeamStatBuilder losses(int losses) {
+            this.losses = losses;
 
             return this;
         }

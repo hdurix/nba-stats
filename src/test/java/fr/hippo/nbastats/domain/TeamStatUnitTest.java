@@ -30,13 +30,12 @@ class TeamStatUnitTest {
     }
 
     @Test
-    void shouldGetName() {
-        assertThat(detroit().getName()).isEqualTo(TeamName.DETROIT);
-    }
-
-    @Test
-    void shouldGetScore() {
-        assertThat(detroit().getScore()).isEqualTo(124);
+    void shouldBuild() {
+        TeamStat teamStat = detroit();
+        assertThat(teamStat.getName()).isEqualTo(TeamName.DETROIT);
+        assertThat(teamStat.getScore()).isEqualTo(124);
+        assertThat(teamStat.getWins()).isEqualTo(12);
+        assertThat(teamStat.getLosses()).isEqualTo(13);
     }
 
     @Test
@@ -95,11 +94,11 @@ class TeamStatUnitTest {
     }
 
     static TeamStat indiana() {
-        return fullTeamStat().name(TeamName.INDIANA).score(123).build();
+        return fullTeamStat().name(TeamName.INDIANA).score(123).wins(8).losses(18).build();
     }
 
     private static TeamStat.TeamStatBuilder fullTeamStat() {
-        return TeamStat.builder().filter(emptyFilter()).name(TeamName.DETROIT).score(124).players(players());
+        return TeamStat.builder().filter(emptyFilter()).name(TeamName.DETROIT).score(124).wins(12).losses(13).players(players());
     }
 
     private static StatFilter emptyFilter() {

@@ -5,6 +5,8 @@ import org.springframework.util.Assert;
 
 public class GameStat {
 
+    private static final int LINE_SIZE = 29;
+
     private final TeamStat away;
     private final TeamStat home;
 
@@ -18,10 +20,23 @@ public class GameStat {
 
     @Override
     public String toString() {
-        return StringUtils.center(score(), 29, " ") + "\n\n" + away + "\n\n" + home;
+        String scoreLine = StringUtils.center(score(), LINE_SIZE);
+        return scoreLine + "\n" + winsLossesLine(scoreLine) + "\n\n" + away + "\n\n" + home;
     }
 
     private String score() {
         return away.getName().nickname() + " " + away.getScore() + " - " + home.getName().nickname() + " " + home.getScore();
+    }
+
+    private String winsLossesLine(String scoreLine) {
+        int indexOfScoreCentralDash = scoreLine.indexOf('-');
+        String nineSpaces = " ".repeat(9);
+
+        String winLosses = away.getWins() + "-" + away.getLosses() + nineSpaces + home.getWins() + "-" + home.getLosses();
+
+        int indexOfWinsLossesCentralSpace = winLosses.indexOf(nineSpaces) + 4;
+
+        String leftSpaces = " ".repeat(indexOfScoreCentralDash - indexOfWinsLossesCentralSpace);
+        return StringUtils.rightPad(leftSpaces + winLosses, LINE_SIZE);
     }
 }
