@@ -29,6 +29,8 @@ class ApiNbaGameConverter {
             .filter(statFilterProperties.statFilter())
             .name(NbaTeamIds.findById(teamScore.getTeamId()))
             .score(teamScore.getScore())
+            .wins(teamScore.getWins())
+            .losses(teamScore.getLosses())
             .players(extractStat(boxscore))
             .build();
     }

@@ -4,6 +4,8 @@ class ApiScoreboardTeam {
 
     private String teamId;
     private int score;
+    private int wins;
+    private int losses;
 
     public String getTeamId() {
         return teamId;
@@ -13,7 +15,11 @@ class ApiScoreboardTeam {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public int getWins() {
+        return wins;
+    }
+
+    public int getLosses() {
+        return losses;
     }
 }

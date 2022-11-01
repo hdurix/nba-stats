@@ -50,6 +50,7 @@ class ApiNbaGameConverterUnitTest {
         assertThat(gameStat)
             .hasToString(
                 "   Magic 109 - Pistons 113   \n" +
+                "      0-1         1-0        \n" +
                 "\n" +
                 "------- Orlando Magic -------\n" +
                 "P. Banchero 46|27  9  5  2  0\n" +
