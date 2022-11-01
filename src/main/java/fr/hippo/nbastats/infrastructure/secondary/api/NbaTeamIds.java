@@ -1,12 +1,10 @@
-package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
+package fr.hippo.nbastats.infrastructure.secondary.api;
 
 import fr.hippo.nbastats.domain.TeamName;
 import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Map;
-import org.springframework.stereotype.Component;
 
-@Component
-class NbaWrapperTeams {
+class NbaTeamIds {
 
     private static final Map<String, TeamName> TEAM_IDS = Map.ofEntries(
         entry("1610612737", TeamName.ATLANTA),
@@ -45,7 +43,7 @@ class NbaWrapperTeams {
         return new SimpleImmutableEntry<>(id, teamName);
     }
 
-    TeamName findById(String wrapperId) {
+    static TeamName findById(String wrapperId) {
         return TEAM_IDS.get(wrapperId);
     }
 }

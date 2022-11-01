@@ -1,0 +1,1944 @@
+{
+    "meta": {
+        "version": 1,
+        "request": "http://nba.cloud/league/00/2022/10/19/scoreboard?Format=json",
+        "time": "2022-10-20T12:15:58.1558Z"
+    },
+    "scoreboard": {
+        "gameDate": "2022-10-19",
+        "leagueId": "00",
+        "leagueName": "National Basketball Association",
+        "games": [
+            {
+                "gameId": "0022200003",
+                "gameCode": "20221019/ORLDET",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:00:00Z",
+                "gameEt": "2022-10-19T19:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 202711,
+                        "name": "Bojan Bogdanovic",
+                        "playerSlug": "bojan-bogdanovic",
+                        "jerseyNum": "44",
+                        "position": "F",
+                        "teamTricode": "DET",
+                        "points": 24,
+                        "rebounds": 5,
+                        "assists": 2
+                    },
+                    "awayLeaders": {
+                        "personId": 1631094,
+                        "name": "Paolo Banchero",
+                        "playerSlug": "paolo-banchero",
+                        "jerseyNum": "5",
+                        "position": "F",
+                        "teamTricode": "ORL",
+                        "points": 27,
+                        "rebounds": 9,
+                        "assists": 5
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 202711,
+                        "name": "Bojan Bogdanovic",
+                        "playerSlug": "bojan-bogdanovic",
+                        "jerseyNum": "44",
+                        "position": "F",
+                        "teamTricode": "DET",
+                        "points": 24.0,
+                        "rebounds": 5.0,
+                        "assists": 2.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1631094,
+                        "name": "Paolo Banchero",
+                        "playerSlug": "paolo-banchero",
+                        "jerseyNum": "5",
+                        "position": "F",
+                        "teamTricode": "ORL",
+                        "points": 27.0,
+                        "rebounds": 9.0,
+                        "assists": 5.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000339,
+                            "broadcastDisplay": "BSDET"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1188,
+                            "broadcastDisplay": "WXYT"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000353,
+                            "broadcastDisplay": "BSFL"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000273,
+                            "broadcastDisplay": "WYGM-FM/AM"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612765,
+                    "teamName": "Pistons",
+                    "teamCity": "Detroit",
+                    "teamTricode": "DET",
+                    "teamSlug": "pistons",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 113,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 17
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 40
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 34
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612753,
+                    "teamName": "Magic",
+                    "teamCity": "Orlando",
+                    "teamTricode": "ORL",
+                    "teamSlug": "magic",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 109,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 26
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200004",
+                "gameCode": "20221019/WASIND",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:00:00Z",
+                "gameEt": "2022-10-19T19:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1630169,
+                        "name": "Tyrese Haliburton",
+                        "playerSlug": "tyrese-haliburton",
+                        "jerseyNum": "0",
+                        "position": "G",
+                        "teamTricode": "IND",
+                        "points": 26,
+                        "rebounds": 4,
+                        "assists": 7
+                    },
+                    "awayLeaders": {
+                        "personId": 1628398,
+                        "name": "Kyle Kuzma",
+                        "playerSlug": "kyle-kuzma",
+                        "jerseyNum": "33",
+                        "position": "F",
+                        "teamTricode": "WAS",
+                        "points": 22,
+                        "rebounds": 13,
+                        "assists": 2
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1630169,
+                        "name": "Tyrese Haliburton",
+                        "playerSlug": "tyrese-haliburton",
+                        "jerseyNum": "0",
+                        "position": "G",
+                        "teamTricode": "IND",
+                        "points": 26.0,
+                        "rebounds": 4.0,
+                        "assists": 7.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1628398,
+                        "name": "Kyle Kuzma",
+                        "playerSlug": "kyle-kuzma",
+                        "jerseyNum": "33",
+                        "position": "F",
+                        "teamTricode": "WAS",
+                        "points": 22.0,
+                        "rebounds": 13.0,
+                        "assists": 2.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000341,
+                            "broadcastDisplay": "BSIN"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1641,
+                            "broadcastDisplay": "WFNI-FM/AM"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1660,
+                            "broadcastDisplay": "NBCSWA"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1139,
+                            "broadcastDisplay": "WTEM"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612754,
+                    "teamName": "Pacers",
+                    "teamCity": "Indiana",
+                    "teamTricode": "IND",
+                    "teamSlug": "pacers",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 107,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612764,
+                    "teamName": "Wizards",
+                    "teamCity": "Washington",
+                    "teamTricode": "WAS",
+                    "teamSlug": "wizards",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 114,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 36
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 24
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200005",
+                "gameCode": "20221019/HOUATL",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:30:00Z",
+                "gameEt": "2022-10-19T19:30:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629027,
+                        "name": "Trae Young",
+                        "playerSlug": "trae-young",
+                        "jerseyNum": "11",
+                        "position": "G",
+                        "teamTricode": "ATL",
+                        "points": 23,
+                        "rebounds": 3,
+                        "assists": 13
+                    },
+                    "awayLeaders": {
+                        "personId": 1629645,
+                        "name": "Kevin Porter Jr.",
+                        "playerSlug": "kevin-porter-jr",
+                        "jerseyNum": "3",
+                        "position": "G-F",
+                        "teamTricode": "HOU",
+                        "points": 21,
+                        "rebounds": 7,
+                        "assists": 7
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629027,
+                        "name": "Trae Young",
+                        "playerSlug": "trae-young",
+                        "jerseyNum": "11",
+                        "position": "G",
+                        "teamTricode": "ATL",
+                        "points": 23.0,
+                        "rebounds": 3.0,
+                        "assists": 13.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1629645,
+                        "name": "Kevin Porter Jr.",
+                        "playerSlug": "kevin-porter-jr",
+                        "jerseyNum": "3",
+                        "position": "G-F",
+                        "teamTricode": "HOU",
+                        "points": 21.0,
+                        "rebounds": 7.0,
+                        "assists": 7.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000356,
+                            "broadcastDisplay": "BSSE-ATL"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1491,
+                            "broadcastDisplay": "WZGC"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1654,
+                            "broadcastDisplay": "ATTSN-SW"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000699,
+                            "broadcastDisplay": "KBME/KQBU-FM"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612737,
+                    "teamName": "Hawks",
+                    "teamCity": "Atlanta",
+                    "teamTricode": "ATL",
+                    "teamSlug": "hawks",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 117,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 26
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 33
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 33
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612745,
+                    "teamName": "Rockets",
+                    "teamCity": "Houston",
+                    "teamTricode": "HOU",
+                    "teamSlug": "rockets",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 107,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 20
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200006",
+                "gameCode": "20221019/NOPBKN",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:30:00Z",
+                "gameEt": "2022-10-19T19:30:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 201142,
+                        "name": "Kevin Durant",
+                        "playerSlug": "kevin-durant",
+                        "jerseyNum": "7",
+                        "position": "F",
+                        "teamTricode": "BKN",
+                        "points": 32,
+                        "rebounds": 3,
+                        "assists": 2
+                    },
+                    "awayLeaders": {
+                        "personId": 1627742,
+                        "name": "Brandon Ingram",
+                        "playerSlug": "brandon-ingram",
+                        "jerseyNum": "14",
+                        "position": "F",
+                        "teamTricode": "NOP",
+                        "points": 28,
+                        "rebounds": 7,
+                        "assists": 5
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 201142,
+                        "name": "Kevin Durant",
+                        "playerSlug": "kevin-durant",
+                        "jerseyNum": "7",
+                        "position": "F",
+                        "teamTricode": "BKN",
+                        "points": 32.0,
+                        "rebounds": 3.0,
+                        "assists": 2.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1627742,
+                        "name": "Brandon Ingram",
+                        "playerSlug": "brandon-ingram",
+                        "jerseyNum": "14",
+                        "position": "F",
+                        "teamTricode": "NOP",
+                        "points": 28.0,
+                        "rebounds": 7.0,
+                        "assists": 5.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 175,
+                            "broadcastDisplay": "YES"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000267,
+                            "broadcastDisplay": "WFAN-FM"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000346,
+                            "broadcastDisplay": "BSNO"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1552,
+                            "broadcastDisplay": "WRNO"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612751,
+                    "teamName": "Nets",
+                    "teamCity": "Brooklyn",
+                    "teamTricode": "BKN",
+                    "teamSlug": "nets",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 108,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 14
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 36
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612740,
+                    "teamName": "Pelicans",
+                    "teamCity": "New Orleans",
+                    "teamTricode": "NOP",
+                    "teamSlug": "pelicans",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 130,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 26
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 40
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200007",
+                "gameCode": "20221019/CHIMIA",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:30:00Z",
+                "gameEt": "2022-10-19T19:30:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 202710,
+                        "name": "Jimmy Butler",
+                        "playerSlug": "jimmy-butler",
+                        "jerseyNum": "22",
+                        "position": "F",
+                        "teamTricode": "MIA",
+                        "points": 24,
+                        "rebounds": 8,
+                        "assists": 3
+                    },
+                    "awayLeaders": {
+                        "personId": 201942,
+                        "name": "DeMar DeRozan",
+                        "playerSlug": "demar-derozan",
+                        "jerseyNum": "11",
+                        "position": "G-F",
+                        "teamTricode": "CHI",
+                        "points": 37,
+                        "rebounds": 6,
+                        "assists": 9
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 202710,
+                        "name": "Jimmy Butler",
+                        "playerSlug": "jimmy-butler",
+                        "jerseyNum": "22",
+                        "position": "F",
+                        "teamTricode": "MIA",
+                        "points": 24.0,
+                        "rebounds": 8.0,
+                        "assists": 3.0
+                    },
+                    "awayLeaders": {
+                        "personId": 201942,
+                        "name": "DeMar DeRozan",
+                        "playerSlug": "demar-derozan",
+                        "jerseyNum": "11",
+                        "position": "G-F",
+                        "teamTricode": "CHI",
+                        "points": 37.0,
+                        "rebounds": 6.0,
+                        "assists": 9.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000354,
+                            "broadcastDisplay": "BSSUN"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000851,
+                            "broadcastDisplay": "WQAM/WAQI"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1656,
+                            "broadcastDisplay": "NBCSCH"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1687,
+                            "broadcastDisplay": "WSCR"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612748,
+                    "teamName": "Heat",
+                    "teamCity": "Miami",
+                    "teamTricode": "MIA",
+                    "teamSlug": "heat",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 108,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 33
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 26
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612741,
+                    "teamName": "Bulls",
+                    "teamCity": "Chicago",
+                    "teamTricode": "CHI",
+                    "teamSlug": "bulls",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 116,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 31
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 37
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 20
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200008",
+                "gameCode": "20221019/CLETOR",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:30:00Z",
+                "gameEt": "2022-10-19T19:30:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1627783,
+                        "name": "Pascal Siakam",
+                        "playerSlug": "pascal-siakam",
+                        "jerseyNum": "43",
+                        "position": "F",
+                        "teamTricode": "TOR",
+                        "points": 23,
+                        "rebounds": 11,
+                        "assists": 1
+                    },
+                    "awayLeaders": {
+                        "personId": 1628378,
+                        "name": "Donovan Mitchell",
+                        "playerSlug": "donovan-mitchell",
+                        "jerseyNum": "45",
+                        "position": "G",
+                        "teamTricode": "CLE",
+                        "points": 31,
+                        "rebounds": 2,
+                        "assists": 9
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1627783,
+                        "name": "Pascal Siakam",
+                        "playerSlug": "pascal-siakam",
+                        "jerseyNum": "43",
+                        "position": "F",
+                        "teamTricode": "TOR",
+                        "points": 23.0,
+                        "rebounds": 11.0,
+                        "assists": 1.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1628378,
+                        "name": "Donovan Mitchell",
+                        "playerSlug": "donovan-mitchell",
+                        "jerseyNum": "45",
+                        "position": "G",
+                        "teamTricode": "CLE",
+                        "points": 31.0,
+                        "rebounds": 2.0,
+                        "assists": 9.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 11,
+                            "broadcastDisplay": "TSN"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1494,
+                            "broadcastDisplay": "CHUM"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000358,
+                            "broadcastDisplay": "BSOH"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000258,
+                            "broadcastDisplay": "WTAM/WMMS/WNZN"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612761,
+                    "teamName": "Raptors",
+                    "teamCity": "Toronto",
+                    "teamTricode": "TOR",
+                    "teamSlug": "raptors",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 108,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612739,
+                    "teamName": "Cavaliers",
+                    "teamCity": "Cleveland",
+                    "teamTricode": "CLE",
+                    "teamSlug": "cavaliers",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 105,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 35
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 21
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200009",
+                "gameCode": "20221019/NYKMEM",
+                "gameStatus": 3,
+                "gameStatusText": "Final/OT",
+                "period": 5,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-19T23:30:00Z",
+                "gameEt": "2022-10-19T19:30:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629630,
+                        "name": "Ja Morant",
+                        "playerSlug": "ja-morant",
+                        "jerseyNum": "12",
+                        "position": "G",
+                        "teamTricode": "MEM",
+                        "points": 34,
+                        "rebounds": 4,
+                        "assists": 9
+                    },
+                    "awayLeaders": {
+                        "personId": 203944,
+                        "name": "Julius Randle",
+                        "playerSlug": "julius-randle",
+                        "jerseyNum": "30",
+                        "position": "F-C",
+                        "teamTricode": "NYK",
+                        "points": 24,
+                        "rebounds": 11,
+                        "assists": 6
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629630,
+                        "name": "Ja Morant",
+                        "playerSlug": "ja-morant",
+                        "jerseyNum": "12",
+                        "position": "G",
+                        "teamTricode": "MEM",
+                        "points": 34.0,
+                        "rebounds": 4.0,
+                        "assists": 9.0
+                    },
+                    "awayLeaders": {
+                        "personId": 203944,
+                        "name": "Julius Randle",
+                        "playerSlug": "julius-randle",
+                        "jerseyNum": "30",
+                        "position": "F-C",
+                        "teamTricode": "NYK",
+                        "points": 24.0,
+                        "rebounds": 11.0,
+                        "assists": 6.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [
+                        {
+                            "broadcasterId": 2,
+                            "broadcastDisplay": "ESPN"
+                        }
+                    ],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000355,
+                            "broadcastDisplay": "BSSE-MEM"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000152,
+                            "broadcastDisplay": "WMFS"
+                        }
+                    ],
+                    "awayTvBroadcasters": [],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1023,
+                            "broadcastDisplay": "WEPN"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612763,
+                    "teamName": "Grizzlies",
+                    "teamCity": "Memphis",
+                    "teamTricode": "MEM",
+                    "teamSlug": "grizzlies",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 115,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 36
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 24
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 5,
+                            "periodType": "OVERTIME",
+                            "score": 7
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612752,
+                    "teamName": "Knicks",
+                    "teamCity": "New York",
+                    "teamTricode": "NYK",
+                    "teamSlug": "knicks",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 112,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 33
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 29
+                        },
+                        {
+                            "period": 5,
+                            "periodType": "OVERTIME",
+                            "score": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200010",
+                "gameCode": "20221019/OKCMIN",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-20T00:00:00Z",
+                "gameEt": "2022-10-19T20:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 203497,
+                        "name": "Rudy Gobert",
+                        "playerSlug": "rudy-gobert",
+                        "jerseyNum": "27",
+                        "position": "C",
+                        "teamTricode": "MIN",
+                        "points": 23,
+                        "rebounds": 16,
+                        "assists": 2
+                    },
+                    "awayLeaders": {
+                        "personId": 1628983,
+                        "name": "Shai Gilgeous-Alexander",
+                        "playerSlug": "shai-gilgeous-alexander",
+                        "jerseyNum": "2",
+                        "position": "G",
+                        "teamTricode": "OKC",
+                        "points": 32,
+                        "rebounds": 6,
+                        "assists": 5
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 203497,
+                        "name": "Rudy Gobert",
+                        "playerSlug": "rudy-gobert",
+                        "jerseyNum": "27",
+                        "position": "C",
+                        "teamTricode": "MIN",
+                        "points": 23.0,
+                        "rebounds": 16.0,
+                        "assists": 2.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1628983,
+                        "name": "Shai Gilgeous-Alexander",
+                        "playerSlug": "shai-gilgeous-alexander",
+                        "jerseyNum": "2",
+                        "position": "G",
+                        "teamTricode": "OKC",
+                        "points": 32.0,
+                        "rebounds": 6.0,
+                        "assists": 5.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000347,
+                            "broadcastDisplay": "BSN"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1380,
+                            "broadcastDisplay": "WCCO"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000345,
+                            "broadcastDisplay": "BSOK"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1140,
+                            "broadcastDisplay": "WWLS"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612750,
+                    "teamName": "Timberwolves",
+                    "teamCity": "Minnesota",
+                    "teamTricode": "MIN",
+                    "teamSlug": "timberwolves",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 115,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 35
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612760,
+                    "teamName": "Thunder",
+                    "teamCity": "Oklahoma City",
+                    "teamTricode": "OKC",
+                    "teamSlug": "thunder",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 108,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 35
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 21
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200011",
+                "gameCode": "20221019/CHASAS",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-20T00:00:00Z",
+                "gameEt": "2022-10-19T20:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629640,
+                        "name": "Keldon Johnson",
+                        "playerSlug": "keldon-johnson",
+                        "jerseyNum": "3",
+                        "position": "F-G",
+                        "teamTricode": "SAS",
+                        "points": 20,
+                        "rebounds": 11,
+                        "assists": 4
+                    },
+                    "awayLeaders": {
+                        "personId": 1626179,
+                        "name": "Terry Rozier",
+                        "playerSlug": "terry-rozier",
+                        "jerseyNum": "3",
+                        "position": "G",
+                        "teamTricode": "CHA",
+                        "points": 24,
+                        "rebounds": 6,
+                        "assists": 6
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629640,
+                        "name": "Keldon Johnson",
+                        "playerSlug": "keldon-johnson",
+                        "jerseyNum": "3",
+                        "position": "F-G",
+                        "teamTricode": "SAS",
+                        "points": 20.0,
+                        "rebounds": 11.0,
+                        "assists": 4.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1626179,
+                        "name": "Terry Rozier",
+                        "playerSlug": "terry-rozier",
+                        "jerseyNum": "3",
+                        "position": "G",
+                        "teamTricode": "CHA",
+                        "points": 24.0,
+                        "rebounds": 6.0,
+                        "assists": 6.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000344,
+                            "broadcastDisplay": "BSSW-SA"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000260,
+                            "broadcastDisplay": "WOAI/KXTN"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000357,
+                            "broadcastDisplay": "BSSE-CHA"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000862,
+                            "broadcastDisplay": "WFNZ-FM"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612759,
+                    "teamName": "Spurs",
+                    "teamCity": "San Antonio",
+                    "teamTricode": "SAS",
+                    "teamSlug": "spurs",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 102,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 25
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 28
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612766,
+                    "teamName": "Hornets",
+                    "teamCity": "Charlotte",
+                    "teamTricode": "CHA",
+                    "teamSlug": "hornets",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 129,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 38
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 31
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200012",
+                "gameCode": "20221019/DENUTA",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-20T01:00:00Z",
+                "gameEt": "2022-10-19T21:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629012,
+                        "name": "Collin Sexton",
+                        "playerSlug": "collin-sexton",
+                        "jerseyNum": "2",
+                        "position": "G",
+                        "teamTricode": "UTA",
+                        "points": 20,
+                        "rebounds": 5,
+                        "assists": 2
+                    },
+                    "awayLeaders": {
+                        "personId": 203999,
+                        "name": "Nikola Jokic",
+                        "playerSlug": "nikola-jokic",
+                        "jerseyNum": "15",
+                        "position": "C",
+                        "teamTricode": "DEN",
+                        "points": 27,
+                        "rebounds": 4,
+                        "assists": 6
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1629012,
+                        "name": "Collin Sexton",
+                        "playerSlug": "collin-sexton",
+                        "jerseyNum": "2",
+                        "position": "G",
+                        "teamTricode": "UTA",
+                        "points": 20.0,
+                        "rebounds": 5.0,
+                        "assists": 2.0
+                    },
+                    "awayLeaders": {
+                        "personId": 203999,
+                        "name": "Nikola Jokic",
+                        "playerSlug": "nikola-jokic",
+                        "jerseyNum": "15",
+                        "position": "C",
+                        "teamTricode": "DEN",
+                        "points": 27.0,
+                        "rebounds": 4.0,
+                        "assists": 6.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1659,
+                            "broadcastDisplay": "ATTSN-RM"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000859,
+                            "broadcastDisplay": "KZNS/KSL/KTUB"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1014,
+                            "broadcastDisplay": "ALT"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1730,
+                            "broadcastDisplay": "KKSE-FM"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612762,
+                    "teamName": "Jazz",
+                    "teamCity": "Utah",
+                    "teamTricode": "UTA",
+                    "teamSlug": "jazz",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 123,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 1,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 37
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 38
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 19
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 29
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612743,
+                    "teamName": "Nuggets",
+                    "teamCity": "Denver",
+                    "teamTricode": "DEN",
+                    "teamSlug": "nuggets",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 102,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 27
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 22
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200013",
+                "gameCode": "20221019/DALPHX",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-20T02:00:00Z",
+                "gameEt": "2022-10-19T22:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1626164,
+                        "name": "Devin Booker",
+                        "playerSlug": "devin-booker",
+                        "jerseyNum": "1",
+                        "position": "G",
+                        "teamTricode": "PHX",
+                        "points": 28,
+                        "rebounds": 4,
+                        "assists": 9
+                    },
+                    "awayLeaders": {
+                        "personId": 1629029,
+                        "name": "Luka Doncic",
+                        "playerSlug": "luka-doncic",
+                        "jerseyNum": "77",
+                        "position": "F-G",
+                        "teamTricode": "DAL",
+                        "points": 35,
+                        "rebounds": 9,
+                        "assists": 6
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1626164,
+                        "name": "Devin Booker",
+                        "playerSlug": "devin-booker",
+                        "jerseyNum": "1",
+                        "position": "G",
+                        "teamTricode": "PHX",
+                        "points": 28.0,
+                        "rebounds": 4.0,
+                        "assists": 9.0
+                    },
+                    "awayLeaders": {
+                        "personId": 1629029,
+                        "name": "Luka Doncic",
+                        "playerSlug": "luka-doncic",
+                        "jerseyNum": "77",
+                        "position": "F-G",
+                        "teamTricode": "DAL",
+                        "points": 35.0,
+                        "rebounds": 9.0,
+                        "assists": 6.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [
+                        {
+                            "broadcasterId": 2,
+                            "broadcastDisplay": "ESPN"
+                        }
+                    ],
+                    "homeTvBroadcasters": [],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1598,
+                            "broadcastDisplay": "KMVP/KSUN"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000343,
+                            "broadcastDisplay": "BSSW-DAL"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1000695,
+                            "broadcastDisplay": "KEGL/KFZO"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612756,
+                    "teamName": "Suns",
+                    "teamCity": "Phoenix",
+                    "teamTricode": "PHX",
+                    "teamSlug": "suns",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 107,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 24
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 21
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 31
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 31
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612742,
+                    "teamName": "Mavericks",
+                    "teamCity": "Dallas",
+                    "teamTricode": "DAL",
+                    "teamSlug": "mavericks",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 105,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 30
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 19
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 24
+                        }
+                    ]
+                }
+            },
+            {
+                "gameId": "0022200014",
+                "gameCode": "20221019/PORSAC",
+                "gameStatus": 3,
+                "gameStatusText": "Final",
+                "period": 4,
+                "gameClock": "",
+                "gameTimeUTC": "2022-10-20T02:00:00Z",
+                "gameEt": "2022-10-19T22:00:00Z",
+                "regulationPeriods": 4,
+                "seriesGameNumber": "",
+                "seriesText": "",
+                "ifNecessary": false,
+                "gameLeaders": {
+                    "homeLeaders": {
+                        "personId": 1628368,
+                        "name": "De'Aaron Fox",
+                        "playerSlug": "deaaron-fox",
+                        "jerseyNum": "5",
+                        "position": "G",
+                        "teamTricode": "SAC",
+                        "points": 33,
+                        "rebounds": 7,
+                        "assists": 7
+                    },
+                    "awayLeaders": {
+                        "personId": 203924,
+                        "name": "Jerami Grant",
+                        "playerSlug": "jerami-grant",
+                        "jerseyNum": "9",
+                        "position": "F",
+                        "teamTricode": "POR",
+                        "points": 23,
+                        "rebounds": 8,
+                        "assists": 1
+                    }
+                },
+                "teamLeaders": {
+                    "homeLeaders": {
+                        "personId": 1628368,
+                        "name": "De'Aaron Fox",
+                        "playerSlug": "deaaron-fox",
+                        "jerseyNum": "5",
+                        "position": "G",
+                        "teamTricode": "SAC",
+                        "points": 33.0,
+                        "rebounds": 7.0,
+                        "assists": 7.0
+                    },
+                    "awayLeaders": {
+                        "personId": 203924,
+                        "name": "Jerami Grant",
+                        "playerSlug": "jerami-grant",
+                        "jerseyNum": "9",
+                        "position": "F",
+                        "teamTricode": "POR",
+                        "points": 23.0,
+                        "rebounds": 8.0,
+                        "assists": 1.0
+                    },
+                    "seasonLeadersFlag": 0
+                },
+                "broadcasters": {
+                    "nationalBroadcasters": [],
+                    "homeTvBroadcasters": [
+                        {
+                            "broadcasterId": 1027,
+                            "broadcastDisplay": "NBCSCA"
+                        }
+                    ],
+                    "homeRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1052,
+                            "broadcastDisplay": "KHTK"
+                        }
+                    ],
+                    "awayTvBroadcasters": [
+                        {
+                            "broadcasterId": 1000709,
+                            "broadcastDisplay": "ROOT-SP+"
+                        }
+                    ],
+                    "awayRadioBroadcasters": [
+                        {
+                            "broadcasterId": 1472,
+                            "broadcastDisplay": "KPOJ"
+                        }
+                    ]
+                },
+                "homeTeam": {
+                    "teamId": 1610612758,
+                    "teamName": "Kings",
+                    "teamCity": "Sacramento",
+                    "teamTricode": "SAC",
+                    "teamSlug": "kings",
+                    "wins": 0,
+                    "losses": 1,
+                    "score": 108,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 23
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 29
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 24
+                        }
+                    ]
+                },
+                "awayTeam": {
+                    "teamId": 1610612757,
+                    "teamName": "Trail Blazers",
+                    "teamCity": "Portland",
+                    "teamTricode": "POR",
+                    "teamSlug": "blazers",
+                    "wins": 1,
+                    "losses": 0,
+                    "score": 115,
+                    "seed": 0,
+                    "inBonus": null,
+                    "timeoutsRemaining": 0,
+                    "periods": [
+                        {
+                            "period": 1,
+                            "periodType": "REGULAR",
+                            "score": 32
+                        },
+                        {
+                            "period": 2,
+                            "periodType": "REGULAR",
+                            "score": 19
+                        },
+                        {
+                            "period": 3,
+                            "periodType": "REGULAR",
+                            "score": 33
+                        },
+                        {
+                            "period": 4,
+                            "periodType": "REGULAR",
+                            "score": 31
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

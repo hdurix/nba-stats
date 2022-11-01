@@ -1,11 +1,8 @@
-package fr.hippo.nbastats.infrastructure.secondary.nbawrapper;
+package fr.hippo.nbastats.infrastructure.secondary.api;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.drmilk.nbawrapper.domain.utils.boxscore.Boxscore;
-import com.drmilk.nbawrapper.domain.utils.scoreboard.GameDetails;
-import com.drmilk.nbawrapper.domain.utils.scoreboard.Scoreboard;
 import fr.hippo.nbastats.domain.GameStatUnitTest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,49 +17,45 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-class NbaWrapperGamesUnitTest {
+class ApiNbaGamesUnitTest {
 
     @Mock
-    private NbaWrapperScoreboards scoreboards;
+    private ApiScoreboards scoreboards;
 
     @Mock
     private ReleasedGames releasedGames;
 
     @Mock
-    private NbaWrapperBoxscores boxscores;
-
-    @Mock
-    private NbaWrapperGameConverter gameConverter;
+    private ApiNbaGameConverter gameConverter;
 
     @InjectMocks
-    private NbaWrapperGames games;
+    private ApiNbaGames games;
 
     @BeforeEach
     private void mockScoreboard() {
         LocalDate yesterday = LocalDate.now().minusDays(1);
-        when(scoreboards.forDate(yesterday))
-            .thenReturn(buildScoreboard(yesterday, gameDetails("01", yesterday, 3), gameDetails("02", yesterday, 3)));
+        when(scoreboards.forDate(yesterday)).thenReturn(buildScoreboard(game("01", yesterday, 3), game("02", yesterday, 3)));
 
         LocalDate today = LocalDate.now();
-        when(scoreboards.forDate(today))
-            .thenReturn(buildScoreboard(today, gameDetails("11", today, 2), gameDetails("12", today, 3), gameDetails("13", today, 1)));
+        when(scoreboards.forDate(today)).thenReturn(buildScoreboard(game("11", today, 2), game("12", today, 3), game("13", today, 1)));
     }
 
-    private Scoreboard buildScoreboard(LocalDate gameDate, GameDetails... games) {
-        Scoreboard scoreboard = new Scoreboard();
+    private ApiScoreboard buildScoreboard(ApiScoreboardGame... games) {
+        ApiScoreboard scoreboard = new ApiScoreboard();
         scoreboard.setGames(Arrays.asList(games));
         return scoreboard;
     }
 
     @BeforeEach
     private void mockBoxscores() {
-        when(boxscores.findByGameId(LocalDate.now().minusDays(1), "02")).thenReturn(new Boxscore());
-        when(boxscores.findByGameId(LocalDate.now(), "12")).thenReturn(new Boxscore());
+        when(scoreboards.boxscoreForGame("02")).thenReturn(new ApiBoxscoreGame());
+        when(scoreboards.boxscoreForGame("12")).thenReturn(new ApiBoxscoreGame());
     }
 
     @BeforeEach
     private void mockGameConverter() {
-        when(gameConverter.toDomain(any(GameDetails.class), any(Boxscore.class))).thenReturn(GameStatUnitTest.defaultGameStat());
+        when(gameConverter.toDomain(any(ApiScoreboardGame.class), any(ApiBoxscoreGame.class)))
+            .thenReturn(GameStatUnitTest.defaultGameStat());
     }
 
     @BeforeEach
@@ -85,11 +78,11 @@ class NbaWrapperGamesUnitTest {
         assertThat(games.findUnreleased()).isPresent();
     }
 
-    private GameDetails gameDetails(String gameId, LocalDate gameDate, int status) {
-        GameDetails gameDetails = new GameDetails();
+    private ApiScoreboardGame game(String gameId, LocalDate gameDate, int status) {
+        ApiScoreboardGame gameDetails = new ApiScoreboardGame();
         gameDetails.setGameId(gameId);
-        gameDetails.setAdditionalProperty("statusNum", status);
-        gameDetails.setAdditionalProperty("gameUrlCode", gameDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")) + "/url");
+        gameDetails.setGameStatus(status);
+        gameDetails.setGameCode(gameDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")) + "/url");
         return gameDetails;
     }
 }
