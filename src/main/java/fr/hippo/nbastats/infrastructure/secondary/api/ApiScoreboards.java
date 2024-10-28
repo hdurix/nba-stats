@@ -19,18 +19,21 @@ class ApiScoreboards {
     ApiScoreboard forDate(LocalDate date) {
         String url = "https://stats.nba.com/stats/scoreboardv3?LeagueID=00&GameDate=" + date;
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Referer", "https://www.nba.com/");
-        headers.set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64)");
-
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-        return rest.exchange(url, HttpMethod.GET, entity, ApiScoreboardWrapper.class).getBody().getScoreboard();
+        return rest.exchange(url, HttpMethod.GET, entityWithNbaHeaders(), ApiScoreboardWrapper.class).getBody().getScoreboard();
     }
 
     public ApiBoxscoreGame boxscoreForGame(String gameId) {
         String url = "https://cdn.nba.com/static/json/liveData/boxscore/boxscore_" + gameId + ".json";
 
-        return rest.getForObject(url, ApiBoxscore.class).getGame();
+        return rest.exchange(url, HttpMethod.GET, entityWithNbaHeaders(), ApiBoxscore.class).getBody().getGame();
+    }
+
+    private static HttpEntity<Void> entityWithNbaHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Origin", "https://www.nba.com/");
+        headers.set("Referer", "https://www.nba.com/");
+        headers.set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64)");
+
+        return new HttpEntity<>(headers);
     }
 }
