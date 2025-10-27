@@ -8,15 +8,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
 
-class ApiScoreboardWrapperUnitTest {
+class ApiScoreboardUnitTest {
 
     @Test
     void shouldReadFromJson() {
-        ApiScoreboardWrapper scoreboard = JsonHelper.readFromJson(defaultJson(), ApiScoreboardWrapper.class);
+        ApiScoreboard scoreboard = JsonHelper.readFromJson(defaultJson(), ApiScoreboard.class);
 
-        ApiScoreboardGame game = scoreboard.getScoreboard().getGames().iterator().next();
+        ApiScoreboardGame game = scoreboard.getGames().iterator().next();
         assertThat(game.getGameId()).isEqualTo("0022200003");
-        assertThat(game.getGameCode()).isEqualTo("20221019/ORLDET");
         assertThat(game.getGameStatus()).isEqualTo(3);
         assertThat(game.getHomeTeam().getTeamId()).isEqualTo("1610612765");
         assertThat(game.getHomeTeam().getScore()).isEqualTo(113);

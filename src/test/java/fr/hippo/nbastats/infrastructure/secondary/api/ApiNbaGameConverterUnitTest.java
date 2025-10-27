@@ -121,7 +121,7 @@ class ApiNbaGameConverterUnitTest {
     }
 
     private ApiScoreboardGame getScoreboardGame() throws IOException {
-        return JsonHelper.readFromJson(defaultScoreboardJson(), ApiScoreboardWrapper.class).getScoreboard().getGames().iterator().next();
+        return JsonHelper.readFromJson(defaultScoreboardJson(), ApiScoreboard.class).getGames().iterator().next();
     }
 
     private String defaultBoxscoreJson() throws IOException {

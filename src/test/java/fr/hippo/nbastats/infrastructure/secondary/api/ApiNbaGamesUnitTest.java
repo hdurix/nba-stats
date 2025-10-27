@@ -5,7 +5,6 @@ import static org.mockito.Mockito.*;
 
 import fr.hippo.nbastats.domain.GameStatUnitTest;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,15 +33,15 @@ class ApiNbaGamesUnitTest {
     @BeforeEach
     private void mockScoreboard() {
         LocalDate yesterday = LocalDate.now().minusDays(1);
-        when(scoreboards.forDate(yesterday)).thenReturn(buildScoreboard(game("01", yesterday, 3), game("02", yesterday, 3)));
+        when(scoreboards.forDate(yesterday)).thenReturn(buildScoreboard(game("01", 3), game("02", 3)));
 
         LocalDate today = LocalDate.now();
-        when(scoreboards.forDate(today)).thenReturn(buildScoreboard(game("11", today, 2), game("12", today, 3), game("13", today, 1)));
+        when(scoreboards.forDate(today)).thenReturn(buildScoreboard(game("11", 2), game("12", 3), game("13", 1)));
     }
 
-    private ApiScoreboard buildScoreboard(ApiScoreboardGame... games) {
+    private ApiScoreboard buildScoreboard(ApiModule... modules) {
         ApiScoreboard scoreboard = new ApiScoreboard();
-        scoreboard.setGames(Arrays.asList(games));
+        scoreboard.setModules(Arrays.asList(modules));
         return scoreboard;
     }
 
@@ -78,11 +77,16 @@ class ApiNbaGamesUnitTest {
         assertThat(games.findUnreleased()).isPresent();
     }
 
-    private ApiScoreboardGame game(String gameId, LocalDate gameDate, int status) {
+    private ApiModule game(String gameId, int status) {
         ApiScoreboardGame gameDetails = new ApiScoreboardGame();
         gameDetails.setGameId(gameId);
         gameDetails.setGameStatus(status);
-        gameDetails.setGameCode(gameDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")) + "/url");
-        return gameDetails;
+
+        ApiCard card = new ApiCard();
+        card.setCardData(gameDetails);
+
+        ApiModule module = new ApiModule();
+        module.setCards(List.of(card));
+        return module;
     }
 }

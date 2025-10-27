@@ -3,7 +3,6 @@ package fr.hippo.nbastats.infrastructure.secondary.api;
 class ApiScoreboardGame {
 
     private String gameId;
-    private String gameCode;
     private int gameStatus;
     private ApiScoreboardTeam homeTeam;
     private ApiScoreboardTeam awayTeam;
@@ -14,14 +13,6 @@ class ApiScoreboardGame {
 
     public void setGameId(String gameId) {
         this.gameId = gameId;
-    }
-
-    public String getGameCode() {
-        return gameCode;
-    }
-
-    public void setGameCode(String gameCode) {
-        this.gameCode = gameCode;
     }
 
     public int getGameStatus() {

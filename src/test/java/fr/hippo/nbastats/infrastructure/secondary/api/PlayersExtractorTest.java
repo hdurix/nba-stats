@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 @Disabled("no need to be automated")
 class PlayersExtractorTest {
 
-    private static final int CURRENT_SEASON = 2020;
+    private static final int CURRENT_SEASON = 2025;
     private static final String SOURCE_BASE_URL = "http://data.nba.net/data/10s/prod/v1";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
