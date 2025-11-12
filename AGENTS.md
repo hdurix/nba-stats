@@ -25,6 +25,7 @@ Telegram bot that posts NBA game stats once a game is finished. Overview in `REA
 
 - The feed changes without notice (`Breaking NBA API changes`, preseason games with foreign teams and no `minutesCalculated`): reproduce against the live feed before changing code
 - The boxscore (`cdn.nba.com`) answers 403 to JVM HTTP clients from some IPs (GitHub Actions, the Raspberry Pi) even with the headers `curl` passes with, hence `Curl` (curl sub-process). Do not switch it back to `RestTemplate`
+- Team records (wins/losses) of the game card are not updated yet when a game turns final: `ApiNbaGames` waits for a second sighting (scheduler every 3 minutes) before publishing
 
 ## State
 

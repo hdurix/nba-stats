@@ -12,6 +12,7 @@ class NbaStatsApplicationService {
 
     private static final int ONE_SECOND = 1000;
     private static final int ONE_MINUTE = 60 * ONE_SECOND;
+    private static final int THREE_MINUTES = 3 * ONE_MINUTE;
 
     private static final Logger log = LoggerFactory.getLogger(NbaStatsApplicationService.class);
 
@@ -23,7 +24,7 @@ class NbaStatsApplicationService {
         this.notifier = notifier;
     }
 
-    @Scheduled(initialDelay = ONE_SECOND, fixedDelay = ONE_MINUTE)
+    @Scheduled(initialDelay = ONE_SECOND, fixedDelay = THREE_MINUTES)
     void notifyNextGame() {
         log.debug("Check if a new game has to be notified");
 

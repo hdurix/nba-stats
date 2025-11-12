@@ -65,7 +65,9 @@ class ApiNbaGamesUnitTest {
     }
 
     @Test
-    void shouldFindTwoUnreleasedGames() {
+    void shouldReleaseGamesOnlyWhenSeenTwice() {
+        assertThat(games.findUnreleased()).isEmpty();
+
         release();
         release();
 
@@ -76,6 +78,7 @@ class ApiNbaGamesUnitTest {
 
     @Test
     void shouldIgnoreGamesAgainstNonNbaTeams() {
+        games.findUnreleased();
         games.findUnreleased();
         games.findUnreleased();
         games.findUnreleased();
