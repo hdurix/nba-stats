@@ -65,10 +65,18 @@ class ApiNbaGamesUnitTest {
 
     @Test
     void shouldFindTwoUnreleasedGames() {
-        release();
+        // First pass: both "02" and "12" seen and added to awaitingStableRecord
+        assertThat(games.findUnreleased()).isEmpty();
+
+        // Second pass: "02" passes recordStabilized() and gets released
         release();
 
+        // Third pass: "12" passes recordStabilized() and gets released
+        release();
+
+        // No more unreleased games
         assertThat(games.findUnreleased()).isEmpty();
+
         verify(releasedGames).add("02");
         verify(releasedGames).add("12");
     }
