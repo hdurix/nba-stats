@@ -11,6 +11,7 @@ Two running channels are available:
 * Java 11
 * Spring Boot
 * Maven
+* curl (used to fetch the boxscores)
 
 [![codecov](https://codecov.io/gh/hdurix/nba-stats/branch/master/graph/badge.svg)](https://codecov.io/gh/hdurix/nba-stats)
 
