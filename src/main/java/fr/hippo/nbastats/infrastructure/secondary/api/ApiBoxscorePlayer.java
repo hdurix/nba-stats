@@ -45,11 +45,7 @@ class ApiBoxscorePlayer {
             .threePoints(new StatTuple(statistics.getThreePointersMade(), statistics.getThreePointersAttempted()))
             .freeThrows(new StatTuple(statistics.getFreeThrowsMade(), statistics.getFreeThrowsAttempted()))
             .turnovers(new Stat(statistics.getTurnovers()))
-            .minutes(new Stat(parseMinutes(statistics.getMinutesCalculated())))
+            .minutes(new Stat(statistics.minutesPlayed()))
             .build();
-    }
-
-    private static int parseMinutes(String minutes) {
-        return Integer.parseInt(minutes.split("PT")[1].split("M")[0]);
     }
 }
