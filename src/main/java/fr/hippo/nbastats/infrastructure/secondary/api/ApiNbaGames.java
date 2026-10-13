@@ -37,7 +37,7 @@ class ApiNbaGames implements Games {
 
     @Override
     public Optional<GameStat> findUnreleased() {
-        return getRecentGames().stream().filter(finished()).filter(notReleased()).findFirst().map(release());
+        return getRecentGames().stream().filter(finished()).filter(betweenNbaTeams()).filter(notReleased()).findFirst().map(release());
     }
 
     private List<ApiScoreboardGame> getRecentGames() {
@@ -50,6 +50,10 @@ class ApiNbaGames implements Games {
 
     private Predicate<ApiScoreboardGame> finished() {
         return game -> game.getGameStatus() == STATUS_FINISHED;
+    }
+
+    private Predicate<ApiScoreboardGame> betweenNbaTeams() {
+        return game -> NbaTeamIds.isNbaTeam(game.getHomeTeam().getTeamId()) && NbaTeamIds.isNbaTeam(game.getAwayTeam().getTeamId());
     }
 
     private Predicate<ApiScoreboardGame> notReleased() {

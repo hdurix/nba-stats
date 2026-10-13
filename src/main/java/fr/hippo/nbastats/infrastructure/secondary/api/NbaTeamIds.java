@@ -43,6 +43,10 @@ class NbaTeamIds {
         return new SimpleImmutableEntry<>(id, teamName);
     }
 
+    static boolean isNbaTeam(String teamId) {
+        return TEAM_IDS.containsKey(teamId);
+    }
+
     static TeamName findById(String wrapperId) {
         return TEAM_IDS.get(wrapperId);
     }

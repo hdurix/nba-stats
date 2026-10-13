@@ -3,6 +3,7 @@ package fr.hippo.nbastats.infrastructure.secondary.api;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import fr.hippo.nbastats.JsonHelper;
 import fr.hippo.nbastats.domain.GameStatUnitTest;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ class ApiNbaGamesUnitTest {
         when(scoreboards.forDate(yesterday)).thenReturn(buildScoreboard(game("01", 3), game("02", 3)));
 
         LocalDate today = LocalDate.now();
-        when(scoreboards.forDate(today)).thenReturn(buildScoreboard(game("11", 2), game("12", 3), game("13", 1)));
+        when(scoreboards.forDate(today)).thenReturn(buildScoreboard(game("11", 2), game("12", 3), game("13", 1), foreignTeamGame("14")));
     }
 
     private ApiScoreboard buildScoreboard(ApiModule... modules) {
@@ -73,14 +74,37 @@ class ApiNbaGamesUnitTest {
         verify(releasedGames).add("12");
     }
 
+    @Test
+    void shouldIgnoreGamesAgainstNonNbaTeams() {
+        games.findUnreleased();
+        games.findUnreleased();
+        games.findUnreleased();
+
+        verify(releasedGames, never()).add("14");
+        verify(scoreboards, never()).boxscoreForGame("14");
+    }
+
     private void release() {
         assertThat(games.findUnreleased()).isPresent();
     }
 
     private ApiModule game(String gameId, int status) {
-        ApiScoreboardGame gameDetails = new ApiScoreboardGame();
-        gameDetails.setGameId(gameId);
-        gameDetails.setGameStatus(status);
+        return module(gameId, status, "1610612743", "1610612738");
+    }
+
+    private ApiModule foreignTeamGame(String gameId) {
+        return module(gameId, 3, "1610612757", "50015");
+    }
+
+    private ApiModule module(String gameId, int status, String homeTeamId, String awayTeamId) {
+        String json = String.format(
+            "{\"gameId\": \"%s\", \"gameStatus\": %d, \"homeTeam\": {\"teamId\": \"%s\"}, \"awayTeam\": {\"teamId\": \"%s\"}}",
+            gameId,
+            status,
+            homeTeamId,
+            awayTeamId
+        );
+        ApiScoreboardGame gameDetails = JsonHelper.readFromJson(json, ApiScoreboardGame.class);
 
         ApiCard card = new ApiCard();
         card.setCardData(gameDetails);

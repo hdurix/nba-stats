@@ -13,4 +13,14 @@ class NbaTeamIdsUnitTest {
 
         assertThat(teamName).isEqualTo(TeamName.DENVER);
     }
+
+    @Test
+    void shouldKnowNbaTeams() {
+        assertThat(NbaTeamIds.isNbaTeam("1610612743")).isTrue();
+    }
+
+    @Test
+    void shouldNotKnowForeignTeams() {
+        assertThat(NbaTeamIds.isNbaTeam("50015")).isFalse();
+    }
 }
