@@ -8,17 +8,12 @@ import org.junit.jupiter.api.Test;
 class ApiBoxscorePlayerUnitTest {
 
     @Test
-    void shouldUseCalculatedMinutesWhenPresent() {
-        assertThat(minutesDisplayed("\"minutes\": \"PT38M20.00S\", \"minutesCalculated\": \"PT39M\"")).endsWith("|39'");
-    }
-
-    @Test
-    void shouldFallbackOnRoundedMinutesWhenCalculatedIsMissing() {
+    void shouldRoundUpMinutes() {
         assertThat(minutesDisplayed("\"minutes\": \"PT16M59.00S\"")).endsWith("|17'");
     }
 
     @Test
-    void shouldRoundDownMinutesWhenCalculatedIsMissing() {
+    void shouldRoundDownMinutes() {
         assertThat(minutesDisplayed("\"minutes\": \"PT16M29.00S\"")).endsWith("|16'");
     }
 

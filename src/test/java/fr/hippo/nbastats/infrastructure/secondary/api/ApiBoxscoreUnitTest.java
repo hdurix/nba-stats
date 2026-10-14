@@ -35,7 +35,7 @@ class ApiBoxscoreUnitTest {
         assertThat(statistics.getFreeThrowsMade()).isEqualTo(4);
         assertThat(statistics.getFreeThrowsAttempted()).isEqualTo(4);
         assertThat(statistics.getTurnovers()).isEqualTo(1);
-        assertThat(statistics.getMinutesCalculated()).isEqualTo("PT31M");
+        assertThat(statistics.getMinutes()).isEqualTo("PT31M23.00S");
 
         assertThat(game.getAwayTeam()).isNotNull();
     }
