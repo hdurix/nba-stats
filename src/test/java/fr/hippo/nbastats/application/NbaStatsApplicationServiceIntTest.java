@@ -13,5 +13,6 @@ class NbaStatsApplicationServiceIntTest {
     @Test
     void shouldMakeFullRound() {
         service.notifyNextGame();
+        service.notifyNextGame();
     }
 }

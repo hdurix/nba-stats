@@ -1,5 +1,7 @@
 package fr.hippo.nbastats.infrastructure.secondary.api;
 
+import java.time.Duration;
+
 class ApiBoxscorePlayerStatistics {
 
     private int foulsPersonal;
@@ -15,7 +17,7 @@ class ApiBoxscorePlayerStatistics {
     private int freeThrowsMade;
     private int freeThrowsAttempted;
     private int turnovers;
-    private String minutesCalculated;
+    private String minutes;
 
     public int getFoulsPersonal() {
         return foulsPersonal;
@@ -69,7 +71,11 @@ class ApiBoxscorePlayerStatistics {
         return turnovers;
     }
 
-    public String getMinutesCalculated() {
-        return minutesCalculated;
+    public String getMinutes() {
+        return minutes;
+    }
+
+    int minutesPlayed() {
+        return (int) Math.round(Duration.parse(minutes).getSeconds() / 60.0);
     }
 }

@@ -5,8 +5,10 @@ import fr.hippo.nbastats.domain.Games;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -19,6 +21,7 @@ class ApiNbaGames implements Games {
 
     static final int STATUS_FINISHED = 3;
     private List<String> released = new ArrayList<>();
+    private final Set<String> awaitingTeamRecords = new HashSet<>();
 
     private final ApiScoreboards scoreboards;
     private final ReleasedGames releasedGames;
@@ -37,7 +40,14 @@ class ApiNbaGames implements Games {
 
     @Override
     public Optional<GameStat> findUnreleased() {
-        return getRecentGames().stream().filter(finished()).filter(notReleased()).findFirst().map(release());
+        return getRecentGames()
+            .stream()
+            .filter(finished())
+            .filter(betweenNbaTeams())
+            .filter(notReleased())
+            .filter(teamRecordsStabilized())
+            .findFirst()
+            .map(release());
     }
 
     private List<ApiScoreboardGame> getRecentGames() {
@@ -52,8 +62,16 @@ class ApiNbaGames implements Games {
         return game -> game.getGameStatus() == STATUS_FINISHED;
     }
 
+    private Predicate<ApiScoreboardGame> betweenNbaTeams() {
+        return game -> NbaTeamIds.isNbaTeam(game.getHomeTeam().getTeamId()) && NbaTeamIds.isNbaTeam(game.getAwayTeam().getTeamId());
+    }
+
     private Predicate<ApiScoreboardGame> notReleased() {
         return game -> !released.contains(game.getGameId());
+    }
+
+    private Predicate<ApiScoreboardGame> teamRecordsStabilized() {
+        return game -> !awaitingTeamRecords.add(game.getGameId());
     }
 
     private Function<ApiScoreboardGame, GameStat> release() {
